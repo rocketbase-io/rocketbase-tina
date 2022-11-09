@@ -16,22 +16,10 @@ blocks:
       vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
       hin zur Administration Ihrer neuen Software.
     _template: content
-  - body: >+
-      Unsere Leistungen\
-
-      **Vom Problem zu Ihrer individuellen Softwarelösung**
-
-
-      Erzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren
-      Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine
-      individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen
-      kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.
-      Technologie-Beratung übernehmen genauso wie Hosting, wenn Sie Ihre
-      Anwendung nicht on-premise betreiben wollen.
-
-
-      ![](/uploads/tina-illustration.webp)
-
-    _template: content
+  - body: "## Vom Problem zu Ihrer individuellen Softwarelösung\n\nErzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine\_individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.\_Technologie-Beratung\_übernehmen genauso wie\_Hosting, wenn Sie Ihre Anwendung nicht on-premise betreiben wollen.\n"
+    subtitle: Unsere Leistungen
+    contentImage: /uploads/services.png
+    color: default
+    _template: contentImage
 ---
 

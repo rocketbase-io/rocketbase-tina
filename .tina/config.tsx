@@ -4,6 +4,7 @@ import { featureBlockSchema } from "../components/blocks/features";
 import { heroBlockSchema } from "../components/blocks/hero";
 import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
+import { contentImageBlockSchema } from "../components/blocks/content-image";
 import { iconSchema } from "../components/util/icon";
 
 const config = defineStaticConfig({
@@ -405,6 +406,7 @@ const config = defineStaticConfig({
               bannerBlockSchema,
               featureBlockSchema,
               contentBlockSchema,
+              contentImageBlockSchema,
               testimonialBlockSchema,
             ],
           },
