@@ -14,11 +14,16 @@ export const ContentImage = ({ data, parentField = "" }) => {
         data-tinafield={`${parentField}.body`}
         size="large"
       >
-        <img src={data?.contentImage} className="sm:w-5/12 h-full"></img>
-        <div className="sm:w-7/12">
+        {data.contentImage && (data.reverse == false || !data.reverse) && (
+          <img src={data?.contentImage} className="sm:w-5/12 h-full p-2"></img>
+        )}
+        <div className="sm:w-7/12 p-2">
           <h4>{data?.subtitle}</h4>
-          <TinaMarkdown content={data?.body}  />
+          <TinaMarkdown content={data?.body} />
         </div>
+        {data.contentImage && data.reverse == true && (
+          <img src={data?.contentImage} className="sm:w-5/12 h-full p-2"></img>
+        )}
       </Container>
     </Section>
   );
@@ -48,6 +53,11 @@ export const contentImageBlockSchema: TinaTemplate = {
       type: "image",
       label: "Image",
       name: "contentImage",
+    },
+    {
+      type: "boolean",
+      label: "Reverse",
+      name: "reverse",
     },
     {
       type: "string",
