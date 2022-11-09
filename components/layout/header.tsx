@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "../util/container";
 import { useTheme } from ".";
-import { Icon } from "../util/icon";
 
 export const Header = ({ data }) => {
   const theme = useTheme();
@@ -56,12 +55,12 @@ export const Header = ({ data }) => {
 
   return (
     <div className={`bg-gradient-to-b ${headerColorCss}`}>
-      <Container size="custom" className="py-0 relative z-10 max-w-8xl">
+      <Container size="custom" className="py-0 absolute z-10 w-full">
         <div className="flex items-center justify-between">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
             <Link href="/" passHref>
               <a className="flex items-center">
-                <Icon
+                {/* <Icon
                   parentColor={data.color}
                   data={{
                     name: data.icon.name,
@@ -70,7 +69,8 @@ export const Header = ({ data }) => {
                   }}
                   className="inline-block h-auto w-10 mr-1"
                 />{" "}
-                Tina Starter
+                Tina Starter */}
+                <img src={data?.image} className="h-11"></img>
               </a>
             </Link>
           </h4>

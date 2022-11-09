@@ -2,6 +2,7 @@ import { defineStaticConfig } from "tinacms";
 import { contentBlockSchema } from "../components/blocks/content";
 import { featureBlockSchema } from "../components/blocks/features";
 import { heroBlockSchema } from "../components/blocks/hero";
+import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { iconSchema } from "../components/util/icon";
 
@@ -158,7 +159,11 @@ const config = defineStaticConfig({
             label: "Header",
             name: "header",
             fields: [
-              iconSchema,
+              {
+                type: "image",
+                name: "image",
+                label: "Header Image",
+              },
               {
                 type: "string",
                 label: "Color",
@@ -373,6 +378,9 @@ const config = defineStaticConfig({
             if (document._sys.filename === "about") {
               return `/about`;
             }
+            if (document._sys.filename === "references") {
+              return `/references`;
+            }
             return undefined;
           },
         },
@@ -394,6 +402,7 @@ const config = defineStaticConfig({
             },
             templates: [
               heroBlockSchema,
+              bannerBlockSchema,
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,

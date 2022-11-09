@@ -1,10 +1,6 @@
 {
   "header": {
-    "icon": {
-      "color": "orange",
-      "style": "float",
-      "name": "tina"
-    },
+    "image": "/uploads/logo-light.png",
     "color": "default",
     "nav": [
       {

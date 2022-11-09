@@ -1,50 +1,37 @@
 ---
-title: "Tina Cloud Starter"
+title: Landing Page
 blocks:
-  - headline: Welcome to the Tina Starter
-    text: >
-      This project is set up to show you the basics of working with Tina. You're
-      looking at the landing page, which pulls content from
-      content/pages/home.md, components from components/blocks, and puts them
-      all together in pages/\[filename].tsx, all based on a schema defined in
-      .tina/schema.ts.
-    actions:
-      - label: Get Started
-        type: button
-        icon: true
-        link: /posts
-      - label: Read Blog
-        type: link
-        icon: false
-        link: /posts
-    image:
-      src: /uploads/tina-illustration.webp
-      alt: Tina
-    color: default
-    _template: hero
-  - items:
-      - icon:
-          color: red
-          style: float
-          name: code
-        title: Amazing Feature
-        text: >-
-          Aliquam blandit felis rhoncus, eleifend ipsum in, condimentum nibh.
-          Praesent ac faucibus risus, eu lacinia enim.
-      - icon:
-          color: primary
-          style: float
-          name: like
-        title: This Is a Feature
-        text: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
-      - icon:
-          color: green
-          style: float
-          name: palette
-        title: Configurable Theme
-        text: >-
-          Edit global theme configuration with Tina. Change your theme's primary
-          color, font, or icon set.
-    color: tint
-    _template: features
+  - image:
+      src: /uploads/homepage.png
+      alt: RocketBase
+    _template: banner
+  - body: >
+      ## Mit individuellen Softwarelösungen schneller wachsen.
+
+
+      ***
+
+
+      Wir unterstützen Unternehmen, in neue Markt- und Umsatz-Dimensionen
+      vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
+      hin zur Administration Ihrer neuen Software.
+    _template: content
+  - body: >+
+      Unsere Leistungen\
+
+      **Vom Problem zu Ihrer individuellen Softwarelösung**
+
+
+      Erzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren
+      Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine
+      individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen
+      kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.
+      Technologie-Beratung übernehmen genauso wie Hosting, wenn Sie Ihre
+      Anwendung nicht on-premise betreiben wollen.
+
+
+      ![](/uploads/tina-illustration.webp)
+
+    _template: content
 ---
+
