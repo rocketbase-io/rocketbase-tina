@@ -5,7 +5,7 @@ import { heroBlockSchema } from "../components/blocks/hero";
 import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { contentImageBlockSchema } from "../components/blocks/content-image";
-import { customersBlockSchema } from "../components/blocks/customers"
+import { customersBlockSchema } from "../components/blocks/customers";
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
@@ -373,7 +373,7 @@ const config = defineStaticConfig({
         path: "content/pages",
         ui: {
           router: ({ document }) => {
-            if (document._sys.filename === "home") {
+            /* if (document._sys.filename === "home") {
               return `/`;
             }
             if (document._sys.filename === "about") {
@@ -382,7 +382,8 @@ const config = defineStaticConfig({
             if (document._sys.filename === "referenzen") {
               return `/referenzen`;
             }
-            return undefined;
+            return undefined; */
+            return `/${document._sys.filename}`;
           },
         },
         fields: [
