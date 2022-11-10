@@ -4,16 +4,24 @@
     "color": "default",
     "nav": [
       {
-        "href": "",
-        "label": "Home"
+        "href": "leistungen",
+        "label": "Leistungen"
       },
       {
-        "href": "about",
-        "label": "About"
+        "href": "referenzen",
+        "label": "Referenzen"
       },
       {
-        "href": "posts",
-        "label": "Blog"
+        "href": "ueber-uns",
+        "label": "Über uns"
+      },
+      {
+        "href": "buero",
+        "label": "Büro"
+      },
+      {
+        "href": "jobs",
+        "label": "Jobs"
       }
     ]
   },

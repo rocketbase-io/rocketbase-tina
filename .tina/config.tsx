@@ -379,8 +379,8 @@ const config = defineStaticConfig({
             if (document._sys.filename === "about") {
               return `/about`;
             }
-            if (document._sys.filename === "references") {
-              return `/references`;
+            if (document._sys.filename === "referenzen") {
+              return `/referenzen`;
             }
             return undefined;
           },
