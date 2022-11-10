@@ -45,9 +45,18 @@ export const contentImageBlockSchema: TinaTemplate = {
     previewSrc: "/blocks/content.png",
     defaultItem: {
       body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      label: "Content with Image" 
     },
+      itemProps: (item) => {
+        return { label: item?.label };
+      },
   },
   fields: [
+    {
+      type: "string",
+      label: "Label",
+      name: "label",
+    },
     {
       type: "rich-text",
       label: "Body",

@@ -13,13 +13,24 @@ blocks:
       vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
       hin zur Administration Ihrer neuen Software.
     _template: content
-  - body: "## Vom Problem zu Ihrer individuellen Softwarelösung\n\nErzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine\_individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.\_Technologie-Beratung\_übernehmen genauso wie\_Hosting, wenn Sie Ihre Anwendung nicht on-premise betreiben wollen.\n\n<Button buttonText=\"Mehr erfahren\" />&#x20;\n"
+  - label: Kurzbeschreibung
+    body: >
+      ## Mit individuellen Softwarelösungen schneller wachsen.
+
+
+      Wir unterstützen Unternehmen, in neue Markt- und Umsatz-Dimensionen
+      vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
+      hin zur Administration Ihrer neuen Software.
+    _template: contentImage
+  - label: Leistungen
+    body: "## Vom Problem zu Ihrer individuellen Softwarelösung\n\nErzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine\_individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.\_Technologie-Beratung\_übernehmen genauso wie\_Hosting, wenn Sie Ihre Anwendung nicht on-premise betreiben wollen.\n\n<Button buttonText=\"Mehr erfahren\" />&#x20;\n"
     subtitle: Unsere Leistungen
     contentImage: /uploads/services.png
     reverse: false
     color: default
     _template: contentImage
-  - body: >
+  - label: Team
+    body: >
       ## Mit Kompetenz und Spaß bei der Sache
 
 
@@ -54,7 +65,8 @@ blocks:
       - image: /uploads/delta-sport_logo.png
         name: DeltaSport
     _template: customers
-  - body: >
+  - label: Referenzen
+    body: >
       ## Wir lassen Ergebnisse und unsere Kunden für uns sprechen
 
 
