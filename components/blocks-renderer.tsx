@@ -1,5 +1,9 @@
 import React from "react";
-import type { Page } from "../.tina/__generated__/types";
+import type {
+  Customer,
+  CustomerConnectionEdges,
+  Page,
+} from "../.tina/__generated__/types";
 import { Banner } from "./blocks/banner";
 import { Content } from "./blocks/content";
 import { ContentImage } from "./blocks/content-image";
@@ -8,11 +12,14 @@ import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { Testimonial } from "./blocks/testimonial";
 
-export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
+export const Blocks = (
+  props: Omit<Page, "id" | "_sys" | "_values"> & { customers: Customer[] }
+) => {
   return (
     <>
       {props.blocks
         ? props.blocks.map(function (block, i) {
+            const data = { ...block, customers: props.customers };
             switch (block.__typename) {
               case "PageBlocksContent":
                 return (
@@ -20,34 +27,34 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <Content data={block} parentField={`blocks.${i}`} />
+                    <Content data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
-                case "PageBlocksContentImage":
+              case "PageBlocksContentImage":
                 return (
                   <div
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <ContentImage data={block} parentField={`blocks.${i}`} />
+                    <ContentImage data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
-                case "PageBlocksCustomers":
-                  return (
-                    <div
-                      data-tinafield={`blocks.${i}`}
-                      key={i + block.__typename}
-                    >
-                      <Customers data={block} parentField={`blocks.${i}`} />
-                    </div>
-                  );
+              case "PageBlocksCustomers":
+                return (
+                  <div
+                    data-tinafield={`blocks.${i}`}
+                    key={i + block.__typename}
+                  >
+                    <Customers data={data} parentField={`blocks.${i}`} />
+                  </div>
+                );
               case "PageBlocksHero":
                 return (
                   <div
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <Hero data={block} parentField={`blocks.${i}`} />
+                    <Hero data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksBanner":
@@ -56,7 +63,7 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <Banner data={block} parentField={`blocks.${i}`} />
+                    <Banner data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksFeatures":
@@ -65,7 +72,7 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <Features data={block} parentField={`blocks.${i}`} />
+                    <Features data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksTestimonial":
@@ -74,7 +81,7 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <Testimonial data={block} parentField={`blocks.${i}`} />
+                    <Testimonial data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               default:

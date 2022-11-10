@@ -6,6 +6,8 @@ import type { TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
 
 export const Customers = ({ data, parentField = "" }) => {
+  //const customers = data.
+  console.log(data)
   return (
     <Section color={data.color}>
       <Container
@@ -17,7 +19,7 @@ export const Customers = ({ data, parentField = "" }) => {
       >
         <h2>{data.title}</h2>
         <div className="flex flex-wrap">
-          {data.customers.map((customer) => {
+          {data.customers && data.customers.map((customer) => {
             return <img src={customer.image} className="sm:w-6/12 md:w-4/12 w-full hover:grayscale-0  grayscale dark:invert dark:hover:invert-0" alt={customer.name} key={customer.name}></img>;
           })}
         </div>

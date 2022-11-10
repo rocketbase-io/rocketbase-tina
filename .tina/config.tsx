@@ -33,6 +33,43 @@ const config = defineStaticConfig({
   schema: {
     collections: [
       {
+        label: "Kunden",
+        name: "customer",
+        path: "content/customers",
+        format: "md",
+        ui: {
+          filename: {
+            slugify(values) {
+                return `${values?.name?.toLowerCase()}`
+            },
+          }
+         
+        },
+        fields: [
+          {
+            type: "string",
+            label: "Name",
+            name: "name",
+            required: true,
+          },
+          {
+            type: "image",
+            label: "Logo",
+            name: "image",
+          },
+          {
+            type: "string",
+            label: "Kommentar",
+            name: "comment",
+          },
+          {
+            type: "string",
+            label: "Quelle",
+            name: "source",
+          },
+        ],
+      },
+      {
         label: "Blog Posts",
         name: "post",
         path: "content/posts",

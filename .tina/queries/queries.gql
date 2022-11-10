@@ -16,12 +16,31 @@ query pageQuery {
       }
     }
   }
+  customerConnection {
+    edges {
+      node {
+        id
+        _values
+        _sys {
+          filename
+        }
+      }
+    }
+  }
 }
 
 query contentQuery($relativePath: String!) {
   ...LayoutQueryFragment
   page(relativePath: $relativePath) {
     ...PageParts
+  }
+}
+
+
+query customerQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  customer(relativePath: $relativePath) {
+    ...CustomerParts
   }
 }
 
