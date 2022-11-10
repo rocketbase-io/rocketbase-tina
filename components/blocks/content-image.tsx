@@ -26,7 +26,7 @@ export const ContentImage = ({ data, parentField = "" }) => {
         {data.contentImage && (data.reverse == false || !data.reverse) && (
           <img src={data?.contentImage} className="smd:w-5/12 h-full p-2"></img>
         )}
-        <div className="smd:w-7/12 p-2">
+        <div className={` p-2 ${data.contentImage ? "smd:w-7/12" : ""}`}>
           <h4>{data?.subtitle}</h4>
           <TinaMarkdown content={data?.body} components={components} />
         </div>
