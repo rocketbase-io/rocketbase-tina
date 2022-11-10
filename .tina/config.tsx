@@ -5,7 +5,7 @@ import { heroBlockSchema } from "../components/blocks/hero";
 import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { contentImageBlockSchema } from "../components/blocks/content-image";
-import { iconSchema } from "../components/util/icon";
+import { customersBlockSchema } from "../components/blocks/customers"
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
@@ -405,6 +405,7 @@ const config = defineStaticConfig({
               heroBlockSchema,
               bannerBlockSchema,
               featureBlockSchema,
+              customersBlockSchema,
               contentBlockSchema,
               contentImageBlockSchema,
               testimonialBlockSchema,

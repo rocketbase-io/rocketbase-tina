@@ -37,5 +37,12 @@ blocks:
     contentImage: /uploads/team-intro-2022.png
     reverse: true
     _template: contentImage
+  - title: Auszug unserer Kunden
+    customers:
+      - image: /uploads/bonprix_logo.png
+      - image: /uploads/mavox_logo.png
+      - image: /uploads/statista_logo.png
+      - image: /uploads/stueckgut_logo.png
+    _template: customers
 ---
 
