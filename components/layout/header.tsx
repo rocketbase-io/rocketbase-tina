@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../util/container";
 import { useTheme } from ".";
@@ -53,10 +53,16 @@ export const Header = ({ data }) => {
     }
   });
 
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleNav = (event) => {
+    setIsActive((current) => !current);
+  };
+
   return (
     <div className={`bg-gradient-to-b ${headerColorCss}`}>
       <Container size="custom" className="py-0 absolute z-10 w-full">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
             <Link href="/" passHref>
               <a className="flex items-center">
@@ -74,34 +80,60 @@ export const Header = ({ data }) => {
               </a>
             </Link>
           </h4>
-          <ul className="flex gap-6 sm:gap-8 lg:gap-10">
-            {data.nav &&
-              data.nav.map((item, i) => {
-                const activeItem =
-                  item.href === ""
-                    ? typeof location !== "undefined" &&
-                      location.pathname == "/"
-                    : windowUrl.includes(item.href);
-                return (
-                  <li
-                    key={`${item.label}-${i}`}
-                    className={activeItem ? activeItemClasses[theme.color] : ""}
-                  >
-                    <Link href={`${prefix}/${item.href}`} passHref>
-                      <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
-                        {item.label}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-          </ul>
+          <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            className={`inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
+            aria-controls="navbar-default"
+            aria-expanded="false"
+            onClick={toggleNav}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className={` w-6 h-6 ${
+                isActive ? "rotate-90" : ""
+              } transition-all`}
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <div
+            className={`w-full md:block md:w-auto ${isActive ? "" : "hidden"}`}
+          >
+            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+              {data.nav &&
+                data.nav.map((item, i) => {
+                  const activeItem =
+                    item.href === ""
+                      ? typeof location !== "undefined" &&
+                        location.pathname == "/"
+                      : windowUrl.includes(item.href);
+                  return (
+                    <li
+                      key={`${item.label}-${i}`}
+                      className={`${
+                        activeItem ? activeItemClasses[theme.color] : ""
+                      } block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}
+                    >
+                      <Link href={`${prefix}/${item.href}`} passHref>
+                        <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
+                          {item.label}
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
         </div>
-        <div
-          className={`absolute h-1 bg-gradient-to-r from-transparent ${
-            data.color === "primary" ? `via-white` : `via-black dark:via-white`
-          } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
-        />
       </Container>
     </div>
   );
