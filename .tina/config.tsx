@@ -6,7 +6,7 @@ import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { contentImageBlockSchema } from "../components/blocks/content-image";
 import { customersBlockSchema } from "../components/blocks/customers";
-import { removeDiacritics } from "../src/util";
+import { removeDiacritics } from "../util/util";
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
