@@ -47,23 +47,8 @@ blocks:
     color: ''
     _template: contentImage
   - title: Auszug unserer Kunden
-    customers:
-      - image: /uploads/bonprix_logo.png
-        name: BonPrix
-      - image: /uploads/mavox_logo.png
-        name: Mavox
-      - image: /uploads/statista_logo.png
-        name: Statista
-      - image: /uploads/stueckgut_logo.png
-        name: Stückgut
-      - image: /uploads/venus_logo.png
-        name: Venus
-      - image: /uploads/stage_logo.png
-        name: Stage
-      - image: /uploads/yomei_logo.png
-        name: Yomei
-      - image: /uploads/delta-sport_logo.png
-        name: DeltaSport
+    showDetails: false
+    amount: 6
     _template: customers
   - label: Referenzen
     body: >

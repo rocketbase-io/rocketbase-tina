@@ -57,11 +57,17 @@ module.exports = {
     },
     screens: {
       sm: "600px",
-      smd:"750px",
+      smd: "750px",
       md: "900px",
       lg: "1200px",
       xl: "1500px",
       "2xl": "1800px",
+      "max-sm": { max: "600px" },
+      "max-smd": { max: "750px" },
+      "max-md": { max: "900px" },
+      "max-lg": { max: "1200px" },
+      "max-xl": { max: "1500px" },
+      "max-2xl": { max: "1800px" },
     },
     fontSize: {
       xs: ".875rem",
@@ -85,6 +91,9 @@ module.exports = {
       4: "4px",
     },
     extend: {
+      scale: {
+       102: "102%" 
+      },
       textDecoration: ["active"],
       opacity: {
         7: ".075",

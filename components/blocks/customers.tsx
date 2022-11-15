@@ -7,7 +7,7 @@ import { Button } from "../util/button";
 
 export const Customers = ({ data, parentField = "" }) => {
   //const customers = data.
-  console.log(data)
+  console.log(data);
   return (
     <Section color={data.color}>
       <Container
@@ -17,12 +17,56 @@ export const Customers = ({ data, parentField = "" }) => {
         data-tinafield={`${parentField}.body`}
         size="large"
       >
-        <h2>{data.title}</h2>
-        <div className="flex flex-wrap">
-          {data.customers && data.customers.map((customer) => {
-            return <img src={customer.image} className="sm:w-6/12 md:w-4/12 w-full hover:grayscale-0  grayscale dark:invert dark:hover:invert-0 object-contain" alt={customer.name} key={customer.name}></img>;
-          })}
-        </div>
+        {" "}
+        {!data.showDetails && (
+          <>
+            <h2>{data.title}</h2>
+            <div className="flex flex-wrap">
+              {data.customers &&
+                data.customers.splice(0, data.amount).map((customer) => {
+                  return (
+                    <img
+                      src={customer.image}
+                      className="sm:w-6/12 md:w-4/12 w-full hover:grayscale-0  grayscale dark:invert dark:hover:invert-0 object-contain  duration-700 ease-in-out
+                      transtion
+                      "
+                      alt={customer.name}
+                      key={customer.name}
+                    ></img>
+                  );
+                })}
+            </div>
+          </>
+        )}
+        {data.showDetails && (
+          <>
+            <h2>{data.title}</h2>
+            <div className="md:flex flex-wrap">
+              {data.customers &&
+                data.customers.splice(0, data.amount).map((customer) => {
+                  return (
+                    <div className="p-3 md:w-6/12 w-full" key={customer.name}>
+                      <div className="md:flex    items-start shadow-lg w-full h-full p-3 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none">
+                        <img
+                          src={customer.image}
+                          className="w-4/12 object-contain max-md:ml-auto max-md:mr-auto max-md:!mb-2 !mt-0"
+                          alt={customer.name}
+                        ></img>
+                        <div>
+                          <div className="max-md:text-center">
+                            "{customer.comment}"
+                          </div>
+                          <div className="mt-5 max-md:text-center">
+                            {customer.source}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </>
+        )}
       </Container>
     </Section>
   );
@@ -35,11 +79,11 @@ export const customersBlockSchema: TinaTemplate = {
     previewSrc: "/blocks/customers.png",
     defaultItem: {
       body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-      label: "Customer Block"
+      label: "Customer Block",
     },
-          itemProps: (item) => {
-            return { label: item?.title };
-          },
+    itemProps: (item) => {
+      return { label: item?.title };
+    },
   },
   fields: [
     {
@@ -48,22 +92,14 @@ export const customersBlockSchema: TinaTemplate = {
       name: "title",
     },
     {
-      type: "object",
-      label: "Customers",
-      name: "customers",
-      list: true,
-      fields: [
-        {
-          type: "image",
-          label: "Image",
-          name: "image",
-        },
-        {
-            type:"string",
-            label: "Name",
-            name: "name"
-        }
-      ],
+      type: "boolean",
+      label: "Details",
+      name: "showDetails",
+    },
+    {
+      type: "number",
+      label: "Anzahl an Kunden",
+      name: "amount",
     },
   ],
 };
