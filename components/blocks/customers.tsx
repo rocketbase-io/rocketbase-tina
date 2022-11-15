@@ -41,29 +41,32 @@ export const Customers = ({ data, parentField = "" }) => {
             <h2>{data.title}</h2>
             <div className="md:flex flex-wrap">
               {data.customers &&
-                data.customers.splice(0, data.amount).map((customer) => {
-                  return (
-                    <div className="p-3 md:w-6/12 w-full" key={customer.name}>
-                      <div className="md:flex    items-start shadow-lg w-full h-full p-3 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none">
-                        <img
-                          src={customer.image}
-                          className="w-4/12 object-contain max-md:ml-auto max-md:mr-auto 
+                data.customers
+                  .filter((customer) => customer.comment && customer.comment.length > 0)
+                  .splice(0, data.amount)
+                  .map((customer) => {
+                    return (
+                      <div className="p-3 md:w-6/12 w-full" key={customer.name}>
+                        <div className="md:flex    items-start shadow-lg w-full h-full p-3 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none">
+                          <img
+                            src={customer.image}
+                            className="w-4/12 object-contain max-md:ml-auto max-md:mr-auto 
                           md:mr-4
                           max-md:!mb-2 !mt-0"
-                          alt={customer.name}
-                        ></img>
-                        <div>
-                          <div className="max-md:text-center">
-                            "{customer.comment}"
-                          </div>
-                          <div className="mt-5 max-md:text-center dark:text-gray-300 text-gray-500">
-                            {customer.source}
+                            alt={customer.name}
+                          ></img>
+                          <div>
+                            <div className="max-md:text-center">
+                              "{customer.comment}"
+                            </div>
+                            <div className="mt-5 max-md:text-center dark:text-gray-300 text-gray-500">
+                              {customer.source}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
             </div>
           </>
         )}
