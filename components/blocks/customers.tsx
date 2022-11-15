@@ -49,14 +49,16 @@ export const Customers = ({ data, parentField = "" }) => {
                       <div className="md:flex    items-start shadow-lg w-full h-full p-3 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none">
                         <img
                           src={customer.image}
-                          className="w-4/12 object-contain max-md:ml-auto max-md:mr-auto max-md:!mb-2 !mt-0"
+                          className="w-4/12 object-contain max-md:ml-auto max-md:mr-auto 
+                          md:mr-4
+                          max-md:!mb-2 !mt-0"
                           alt={customer.name}
                         ></img>
                         <div>
                           <div className="max-md:text-center">
                             "{customer.comment}"
                           </div>
-                          <div className="mt-5 max-md:text-center">
+                          <div className="mt-5 max-md:text-center dark:text-gray-300 text-gray-500">
                             {customer.source}
                           </div>
                         </div>
