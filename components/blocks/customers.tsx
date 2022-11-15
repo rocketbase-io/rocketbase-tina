@@ -6,8 +6,6 @@ import type { TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
 
 export const Customers = ({ data, parentField = "" }) => {
-  //const customers = data.
-  console.log(data);
   return (
     <Section color={data.color}>
       <Container

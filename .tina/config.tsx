@@ -6,6 +6,7 @@ import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { contentImageBlockSchema } from "../components/blocks/content-image";
 import { customersBlockSchema } from "../components/blocks/customers";
+import { removeDiacritics } from "../src/util";
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
@@ -40,10 +41,9 @@ const config = defineStaticConfig({
         ui: {
           filename: {
             slugify(values) {
-                return `${values?.name?.toLowerCase()}`
+              return `${removeDiacritics(values?.name?.toLowerCase())}`;
             },
-          }
-         
+          },
         },
         fields: [
           {
@@ -408,6 +408,7 @@ const config = defineStaticConfig({
         label: "Pages",
         name: "page",
         path: "content/pages",
+        format: "md",
         ui: {
           router: ({ document }) => {
             /* if (document._sys.filename === "home") {
