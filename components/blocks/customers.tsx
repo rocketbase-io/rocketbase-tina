@@ -15,13 +15,12 @@ export const Customers = ({ data, parentField = "" }) => {
         data-tinafield={`${parentField}.body`}
         size="large"
       >
-        {" "}
         {!data.showDetails && (
           <>
             <h2>{data.title}</h2>
             <div className="flex flex-wrap">
               {data.customers &&
-                data.customers.splice(0, data.amount).map((customer) => {
+                data.customers.slice(0, data.amount).map((customer) => {
                   return (
                     <img
                       src={customer.image}
@@ -43,7 +42,7 @@ export const Customers = ({ data, parentField = "" }) => {
               {data.customers &&
                 data.customers
                   .filter((customer) => customer.comment && customer.comment.length > 0)
-                  .splice(0, data.amount)
+                  .slice(0, data.amount)
                   .map((customer) => {
                     return (
                       <div className="p-3 md:w-6/12 w-full" key={customer.name}>
