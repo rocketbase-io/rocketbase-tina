@@ -5,7 +5,7 @@ blocks:
       - icon:
           color: green
           style: circle
-          name: palette
+          name: siAngellist
         title: Here's Another Feature
         text: >-
           This is where you might talk about the feature, if this wasn't just
