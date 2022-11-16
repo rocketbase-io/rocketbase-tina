@@ -1,21 +1,5 @@
 query pageQuery {
   ...LayoutQueryFragment
-  postConnection {
-    edges {
-      node {
-        id
-        _values
-        author {
-          ... on Author {
-            ...AuthorParts
-          }
-        }
-        _sys {
-          filename
-        }
-      }
-    }
-  }
   customerConnection {
     edges {
       node {
@@ -33,26 +17,5 @@ query contentQuery($relativePath: String!) {
   ...LayoutQueryFragment
   page(relativePath: $relativePath) {
     ...PageParts
-  }
-}
-
-
-query customerQuery($relativePath: String!) {
-  ...LayoutQueryFragment
-  customer(relativePath: $relativePath) {
-    ...CustomerParts
-  }
-}
-
-query blogPostQuery($relativePath: String!) {
-  ...LayoutQueryFragment
-  post(relativePath: $relativePath) {
-    ...PostParts
-    author {
-      ... on Author {
-        name
-        avatar
-      }
-    }
   }
 }

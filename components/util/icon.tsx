@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as simpleIcons from "@icons-pack/react-simple-icons/";
 import * as phosphorIcons from "phosphor-react/";
 
 import { useTheme } from "../layout";
