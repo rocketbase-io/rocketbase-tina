@@ -1,68 +1,10 @@
 import * as React from "react";
-import {
-  BiCodeBlock,
-  BiLike,
-  BiMapAlt,
-  BiPalette,
-  BiPieChartAlt2,
-  BiPin,
-  BiShield,
-  BiSlider,
-  BiStore,
-  BiTennisBall,
-  BiTestTube,
-  BiTrophy,
-  BiUserCircle,
-  BiBeer,
-  BiChat,
-  BiCloud,
-  BiCoffeeTogo,
-  BiWorld,
-} from "react-icons/bi";
-import { ImTrophy } from "react-icons/im";
-import {
-  HiAdjustments,
-  HiBeaker,
-  HiChartBar,
-  HiChatAlt2,
-  HiCloud,
-  HiColorSwatch,
-  HiLocationMarker,
-  HiMap,
-  HiShieldCheck,
-  HiShoppingCart,
-  HiTerminal,
-  HiThumbUp,
-  HiUser,
-} from "react-icons/hi";
-import { FiAperture } from "react-icons/fi";
-import { useTheme } from "../layout";
-import { FaBeer, FaCoffee } from "react-icons/fa";
-import TinaIconSvg from "../../public/tina.svg";
-import type { TinaField } from "tinacms";
+import * as simpleIcons from "@icons-pack/react-simple-icons/";
+import * as phosphorIcons from "phosphor-react/";
 
-const iconOptions = {
-  code: { bi: BiCodeBlock, hi: HiTerminal },
-  like: { bi: BiLike, hi: HiThumbUp },
-  map: { bi: BiMapAlt, hi: HiMap },
-  palette: { bi: BiPalette, hi: HiColorSwatch },
-  chart: { bi: BiPieChartAlt2, hi: HiChartBar },
-  pin: { bi: BiPin, hi: HiLocationMarker },
-  shield: { bi: BiShield, hi: HiShieldCheck },
-  settings: { bi: BiSlider, hi: HiAdjustments },
-  store: { bi: BiStore, hi: HiShoppingCart },
-  ball: { bi: BiTennisBall, hi: BiTennisBall },
-  tube: { bi: BiTestTube, hi: HiBeaker },
-  trophy: { bi: BiTrophy, hi: ImTrophy },
-  user: { bi: BiUserCircle, hi: HiUser },
-  beer: { bi: BiBeer, hi: FaBeer },
-  chat: { bi: BiChat, hi: HiChatAlt2 },
-  cloud: { bi: BiCloud, hi: HiCloud },
-  coffee: { bi: BiCoffeeTogo, hi: FaCoffee },
-  world: { bi: BiWorld, hi: BiWorld },
-  aperture: { bi: FiAperture, hi: FiAperture },
-  tina: { bi: TinaIconSvg, hi: TinaIconSvg },
-};
+import { useTheme } from "../layout";
+
+import type { SchemaField, TinaField } from "tinacms";
 
 const iconColorClass: { [name: string]: { regular: string; circle: string } } =
   {
@@ -110,6 +52,19 @@ const iconSizeClass = {
   large: "w-14 h-14",
 };
 
+const formatFieldLabel = (value: string) => {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+};
+
+let iconLibrary: typeof phosphorIcons  = phosphorIcons;
+let iconLibraryKeys: {
+  label: string;
+  value: keyof typeof iconLibrary;
+}[] = Object.keys(iconLibrary).map((icon: keyof typeof iconLibrary) => ({
+  label: formatFieldLabel(icon),
+  value: icon,
+}));
+
 export const Icon = ({
   data,
   parentColor = "",
@@ -118,8 +73,18 @@ export const Icon = ({
 }) => {
   const theme = useTheme();
 
-  const iconName = data.name || Object.keys(iconOptions)[0];
+  /* const iconName = data.name || Object.keys(iconOptions)[0];
   const IconSVG = iconOptions[iconName][theme.icon === "boxicon" ? "bi" : "hi"];
+
+  const iconSizeClasses = data.size && iconSizeClass[data.size]; */
+
+  const iconName = data.name;
+
+  if (!iconLibrary) return <i>Invalid Icon Library</i>;
+
+  const Icon = iconLibrary[iconName];
+
+  if (!Icon) return <i>Invalid Icon</i>;
 
   const iconSizeClasses = data.size && iconSizeClass[data.size];
 
@@ -138,7 +103,7 @@ export const Icon = ({
         data-tinafield={tinaField}
         className={`relative z-10 inline-flex items-center justify-center flex-shrink-0 ${iconSizeClasses} rounded-full ${iconColorClass[iconColor].circle} ${className}`}
       >
-        <IconSVG className="w-2/3 h-2/3" />
+        <Icon className="w-2/3 h-2/3" />
       </div>
     );
   } else {
@@ -150,7 +115,7 @@ export const Icon = ({
           : iconColor
       ].regular;
     return (
-      <IconSVG
+      <Icon
         data-tinafield={tinaField}
         className={`${iconSizeClasses} ${iconColorClasses} ${className}`}
       />
@@ -158,11 +123,7 @@ export const Icon = ({
   }
 };
 
-const formatFieldLabel = (value: string) => {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-};
-
-export const iconSchema: TinaField = {
+export const iconSchema: SchemaField & { fields: SchemaField[] } = {
   type: "object",
   label: "Icon",
   name: "icon",
@@ -195,10 +156,7 @@ export const iconSchema: TinaField = {
       type: "string",
       label: "Icon",
       name: "name",
-      options: Object.keys(iconOptions).map((icon) => ({
-        label: formatFieldLabel(icon),
-        value: icon,
-      })),
+      options: iconLibraryKeys,
     },
   ],
 };
