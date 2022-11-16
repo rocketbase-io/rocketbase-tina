@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Container } from "../util/container";
 import { useTheme } from ".";
+import { Button } from "tinacms";
+import { Icon } from "../util/icon";
 
 export const Header = ({ data }) => {
   const theme = useTheme();
@@ -59,10 +61,31 @@ export const Header = ({ data }) => {
     setIsActive((current) => !current);
   };
 
+  const getIsDark = () => {
+    if (typeof window === "undefined") return;
+    return (
+      Array.from(window.document.documentElement.classList.values()).find(
+        (v) => v == "dark"
+      ) != undefined
+    );
+  };
+
+  const [isDark, setIsDark] = useState(getIsDark());
+
+  const toggleDarkMode = (event) => {
+    if (typeof window === "undefined") return;
+    const root = window.document.documentElement;
+    const dark = getIsDark();
+    root.classList.remove("dark");
+    root.classList.remove("light");
+    root.classList.add(dark ? "light" : "dark");
+    setIsDark(!dark);
+  };
+
   return (
     <div className={`bg-gradient-to-b ${headerColorCss}`}>
       <Container size="custom" className="py-0 absolute z-10 w-full">
-        <div className="flex items-center justify-between flex-wrap">
+        <div className="flex items-center justify-between flex-wrap pl-5 pr-5">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
             <Link href="/" passHref>
               <a className="flex items-center">
@@ -105,6 +128,7 @@ export const Header = ({ data }) => {
               ></path>
             </svg>
           </button>
+
           <div
             className={`w-full md:block md:w-auto ${isActive ? "" : "hidden"}`}
           >
@@ -124,7 +148,7 @@ export const Header = ({ data }) => {
                       } text-white block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}
                     >
                       <Link href={`${prefix}/${item.href}`} passHref>
-                        <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
+                        <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-2">
                           {item.label}
                         </a>
                       </Link>
@@ -135,6 +159,19 @@ export const Header = ({ data }) => {
           </div>
         </div>
       </Container>
+      <div
+        className="absolute right-3 top-5 z-10 cursor-pointer select-none "
+        onClick={toggleDarkMode}
+      >
+          <Icon
+            data={{
+              name: "CloudMoon",
+              colorClass: "white",
+              sizeClass: "small",
+            }}
+            svgProps={{ weight: isDark ? "fill" : "regular" }}
+          ></Icon>
+      </div>
     </div>
   );
 };
