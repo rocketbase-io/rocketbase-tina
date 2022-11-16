@@ -1,5 +1,4 @@
 import { defineStaticConfig } from "tinacms";
-import { contentBlockSchema } from "../components/blocks/content";
 import { featureBlockSchema } from "../components/blocks/features";
 import { heroBlockSchema } from "../components/blocks/hero";
 import { bannerBlockSchema } from "../components/blocks/banner";
@@ -314,7 +313,6 @@ const config = defineStaticConfig({
               featureBlockSchema,
               customersBlockSchema,
               projectBlockSchema,
-              contentBlockSchema,
               contentImageBlockSchema,
               testimonialBlockSchema,
             ],

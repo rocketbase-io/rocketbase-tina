@@ -12,7 +12,7 @@ blocks:
       Wir unterstützen Unternehmen, in neue Markt- und Umsatz-Dimensionen
       vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
       hin zur Administration Ihrer neuen Software.
-    _template: content
+    _template: contentImage
   - label: Kurzbeschreibung
     body: >
       ## Mit individuellen Softwarelösungen schneller wachsen.

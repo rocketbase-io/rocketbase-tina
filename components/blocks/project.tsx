@@ -31,10 +31,10 @@ export const Project = ({ data, parentField = "" }) => {
           {data.exampleImage && (
             <img
               src={data.exampleImage}
-              className="smd:w-7/12 w-full object-contain"
+              className="smd:w-7/12 w-full object-contain p-2"
             ></img>
           )}
-          <div>
+          <div className="p-2">
             <dl>
               {data?.duration && (
                 <>
@@ -77,7 +77,7 @@ export const projectBlockSchema: Template = {
   name: "project",
   label: "Referenzprojekt",
   ui: {
-    previewSrc: "/blocks/content.png",
+    previewSrc: "/blocks/project.png",
     defaultItem: {
       body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
       label: "Content with Image",
