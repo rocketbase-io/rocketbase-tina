@@ -10,6 +10,7 @@ import { ContentImage } from "./blocks/content-image";
 import { Customers } from "./blocks/customers";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
+import { Project } from "./blocks/project";
 import { Testimonial } from "./blocks/testimonial";
 
 export const Blocks = (
@@ -46,6 +47,15 @@ export const Blocks = (
                     key={i + block.__typename}
                   >
                     <Customers data={data} parentField={`blocks.${i}`} />
+                  </div>
+                );
+              case "PageBlocksProject":
+                return (
+                  <div
+                    data-tinafield={`blocks.${i}`}
+                    key={i + block.__typename}
+                  >
+                    <Project data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksHero":

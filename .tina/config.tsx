@@ -6,6 +6,7 @@ import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { contentImageBlockSchema } from "../components/blocks/content-image";
 import { customersBlockSchema } from "../components/blocks/customers";
+import { projectBlockSchema } from "../components/blocks/project";
 import { removeDiacritics } from "../util/util";
 import { technologySchema } from "../components/util/technology";
 
@@ -312,6 +313,7 @@ const config = defineStaticConfig({
               bannerBlockSchema,
               featureBlockSchema,
               customersBlockSchema,
+              projectBlockSchema,
               contentBlockSchema,
               contentImageBlockSchema,
               testimonialBlockSchema,
@@ -322,7 +324,7 @@ const config = defineStaticConfig({
       {
         name: "technologyCollection",
         label: "Technologies",
-        path: "technologies",
+        path: "content/technologies",
         ui: {
           filename: {
             slugify(values) {

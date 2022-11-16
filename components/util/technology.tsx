@@ -1,64 +1,38 @@
-export {};
-
 import * as React from "react";
-import { useTheme } from "../layout";
-import TinaIconSvg from "../../public/tina.svg";
-import type { Field, SchemaField, TinaField } from "tinacms";
-import { Icon, iconSchema } from "./icon";
+import type { Template } from "tinacms";
+import { IconTechnology, iconTechnologySchema } from "./icon-technology";
 
-const colorClass: { [name: string]: { regular: string; circle: string } } =
-  {
-    blue: {
-      regular: "text-blue-400",
-      circle: "bg-blue-400 dark:bg-blue-500 text-blue-50",
-    },
-    teal: {
-      regular: "text-teal-400",
-      circle: "bg-teal-400 dark:bg-teal-500 text-teal-50",
-    },
-    green: {
-      regular: "text-green-400",
-      circle: "bg-green-400 dark:bg-green-500 text-green-50",
-    },
-    red: {
-      regular: "text-red-400",
-      circle: "bg-red-400 dark:bg-red-500 text-red-50",
-    },
-    pink: {
-      regular: "text-pink-400",
-      circle: "bg-pink-400 dark:bg-pink-500 text-pink-50",
-    },
-    purple: {
-      regular: "text-purple-400",
-      circle: "bg-purple-400 dark:bg-purple-500 text-purple-50",
-    },
-    orange: {
-      regular: "text-orange-400",
-      circle: "bg-orange-400 dark:bg-orange-500 text-orange-50",
-    },
-    yellow: {
-      regular: "text-yellow-400",
-      circle: "bg-yellow-400 dark:bg-yellow-500 text-yellow-50",
-    },
-    white: {
-      regular: "text-white opacity-80",
-      circle: "bg-white-400 dark:bg-white-500 text-white-50",
-    },
-  };
+export const Technology = ({ data, className = "" }) => {
+  if (data && data.icon) data.icon.style = "circle";
+  return (
+    <a
+      href={data?.src}
+      className={`inline-flex gap-2 items-center w-48  rounded !no-underline ${className}`}
+      style={{
+        color: data?.primaryColor,
+        backgroundColor: data?.secondaryColor,
+      }}
+    >
+      <div
+        className={`h-9 w-9 brightness-90 flex items-center justify-center rounded `}
+        style={{ backgroundColor: data?.secondaryColor}}
+      >
+        <IconTechnology
+          primaryColor={data?.primaryColor}
+          secondaryColor={data?.secondaryColor}
+          data={data?.icon}
+        ></IconTechnology>
+      </div>
 
-export const Technology = ({ data }) => {
-  <Icon parentColor={data.primaryColor} data={data.icon}></Icon>;
+      {data?.name}
+    </a>
+  );
 };
 
-const formatFieldLabel = (value: string) => {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-};
-
-export const technologySchema: SchemaField & { fields: SchemaField[] } = {
-  type: "object",
+export const technologySchema: Template = {
   label: "Technology",
   name: "technology",
- 
+
   fields: [
     {
       type: "string",
@@ -66,6 +40,21 @@ export const technologySchema: SchemaField & { fields: SchemaField[] } = {
       name: "name",
       required: true,
     },
-    iconSchema,
+    {
+      type: "string",
+      label: "URL",
+      name: "src",
+    },
+    {
+      type: "string",
+      label: "Primary Color",
+      name: "primaryColor",
+    },
+    {
+      type: "string",
+      label: "Secondary Color",
+      name: "secondaryColor",
+    },
+    iconTechnologySchema,
   ],
 };

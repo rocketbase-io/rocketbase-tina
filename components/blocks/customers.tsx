@@ -41,12 +41,19 @@ export const Customers = ({ data, parentField = "" }) => {
             <div className="md:flex flex-wrap">
               {data.customers &&
                 data.customers
-                  .filter((customer) => customer.comment && customer.comment.length > 0)
+                  .filter(
+                    (customer) =>
+                      customer.comment && customer.comment.length > 0
+                  )
                   .slice(0, data.amount)
                   .map((customer) => {
                     return (
-                      <div className="p-3 md:w-6/12 w-full" key={customer.name}>
-                        <div className="md:flex    items-start shadow-lg w-full h-full p-3 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none">
+                      <div
+                        className="p-3 md:w-6/12 w-full"
+                        key={customer.name}
+                        style={{ willChange: "contents" }}
+                      >
+                        <div className="md:flex items-start shadow-lg w-full h-full p-3 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none">
                           <img
                             src={customer.image}
                             className="w-4/12 object-contain max-md:ml-auto max-md:mr-auto 

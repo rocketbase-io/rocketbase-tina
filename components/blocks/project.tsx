@@ -2,9 +2,10 @@ import React from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
-import type {  Template, TinaTemplate } from "tinacms";
+import type { Template, TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
 import { RichText } from "../util/rich-text";
+import { Technology, technologySchema } from "../util/technology";
 
 const components: Components<{
   Button: {
@@ -18,22 +19,55 @@ export const Project = ({ data, parentField = "" }) => {
   return (
     <Section color={data.color}>
       <Container
-        className={`max-w-8xl prose prose-lg smd:flex smd:items-center ${
+        className={`max-w-8xl prose prose-lg ${
           data.color === "primary" ? `prose-primary` : `dark:prose-dark`
         }`}
         data-tinafield={`${parentField}.body`}
         size="large"
       >
-        {data.contentImage && (data.reverse == false || !data.reverse) && (
-          <img src={data?.contentImage} className="smd:w-5/12 h-full p-2"></img>
-        )}
-        <div className={` p-2 ${data.contentImage ? "smd:w-7/12" : ""}`}>
-          <h4>{data?.subtitle}</h4>
-          <TinaMarkdown content={data?.body} components={components} />
+        <h2>{data?.name}</h2>
+        <TinaMarkdown content={data?.description} components={components} />
+        <div className="smd:flex">
+          {data.exampleImage && (
+            <img
+              src={data.exampleImage}
+              className="smd:w-7/12 w-full object-contain"
+            ></img>
+          )}
+          <div>
+            <dl>
+              {data?.duration && (
+                <>
+                  <dt className="font-bold">
+                    Zeit bis zur ersten Inbetriebnahme
+                  </dt>
+                  <dd>{data?.duration}</dd>
+                </>
+              )}
+              {data?.industry && (
+                <>
+                  <dt className="font-bold">Branche</dt>
+                  <dd>{data?.industry}</dd>
+                </>
+              )}
+              {data?.usecase && (
+                <>
+                  <dt className="font-bold">Kundennutzen</dt>
+                  <dd>{data?.usecase}</dd>
+                </>
+              )}
+            </dl>
+            <div className="mt-8" style={{ willChange: "contents" }}>
+              {data?.technologies.filter(ref => ref.technology?.name).map((ref) => (
+                <Technology
+                  className="mb-2 mr-2 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
+                  data={ref.technology}
+                  key={ref.technology?.name}
+                ></Technology>
+              ))}
+            </div>
+          </div>
         </div>
-        {data.contentImage && data.reverse == true && (
-          <img src={data?.contentImage} className="smd:w-5/12 h-full p-2"></img>
-        )}
       </Container>
     </Section>
   );
@@ -60,43 +94,47 @@ export const projectBlockSchema: Template = {
     },
     RichText("description", "Beschreibung"),
     {
-      type: "number",
+      type: "string",
       label: "Entwicklungsdauer",
       name: "duration",
     },
     {
-        type: "string",
-        label: "Branche",
-        name: "industry"
+      type: "string",
+      label: "Branche",
+      name: "industry",
     },
     {
-        type: "string",
-        label: "Nutzen",
-        name: "usecase"
+      type: "string",
+      label: "Nutzen",
+      name: "usecase",
     },
     {
       type: "image",
       label: "Bild",
-      name: "image",
+      name: "exampleImage",
     },
     {
-      type: "boolean",
-      label: "Reverse",
-      name: "reverse",
+      type: "object",
+      label: "Technologies",
+      name: "technologies",
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          const tech = item?.technology?.match("content/technologies/(.*).md");
+          if (!tech) return { label: item?.label };
+          if (tech.length > 1) return { label: tech[1] };
+          else return { label: item?.technology };
+        },
+      },
+      fields: [
+        {
+          type: "reference",
+          label: "Technology",
+          name: "technology",
+          collections: ["technologyCollection"],
+        },
+      ],
     },
-    /* {
-        type: "object",
-        label: "Tools",
-        name: "tools",
-        list: true,
-        fields :[
-            {
-                type: "object",
-                label: "Tool",
-                name: ""
-            }
-        ]
-    }, */
     {
       type: "string",
       label: "Color",

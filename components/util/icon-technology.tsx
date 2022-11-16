@@ -55,7 +55,7 @@ const formatFieldLabel = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-let iconLibrary: typeof simpleIcons  = simpleIcons;
+let iconLibrary: typeof simpleIcons = simpleIcons;
 let iconLibraryKeys: {
   label: string;
   value: keyof typeof iconLibrary;
@@ -64,8 +64,10 @@ let iconLibraryKeys: {
   value: icon,
 }));
 
-export const Icon = ({
+export const IconTechnology = ({
   data,
+  primaryColor = "",
+  secondaryColor = "",
   parentColor = "",
   className = "",
   tinaField = "",
@@ -77,12 +79,11 @@ export const Icon = ({
 
   const iconSizeClasses = data.size && iconSizeClass[data.size]; */
 
-  const iconName = data.name;
+  const iconName = data?.name as keyof typeof iconLibrary;
 
   if (!iconLibrary) return <i>Invalid Icon Library</i>;
 
   const Icon = iconLibrary[iconName];
-
   if (!Icon) return <i>Invalid Icon</i>;
 
   const iconSizeClasses = data.size && iconSizeClass[data.size];
@@ -101,8 +102,9 @@ export const Icon = ({
       <div
         data-tinafield={tinaField}
         className={`relative z-10 inline-flex items-center justify-center flex-shrink-0 ${iconSizeClasses} rounded-full ${iconColorClass[iconColor].circle} ${className}`}
+        style={{ backgroundColor: secondaryColor }}
       >
-        <Icon className="w-2/3 h-2/3" />
+        <Icon className="w-2/3 h-2/3" color={primaryColor} />
       </div>
     );
   } else {
@@ -122,14 +124,14 @@ export const Icon = ({
   }
 };
 
-export const iconSchema: SchemaField & { fields: SchemaField[] } = {
+export const iconTechnologySchema: SchemaField & { fields: SchemaField[] } = {
   type: "object",
   label: "Icon",
   name: "icon",
   fields: [
     {
       type: "string",
-      label: "Color",
+      label: "Primary Color",
       name: "color",
       options: Object.keys(iconColorClass).map((color) => ({
         label: formatFieldLabel(color),
