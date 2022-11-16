@@ -27,7 +27,7 @@ export const Banner = ({ data, parentField }) => {
           className="row-start-1 flex justify-center"
         >
           <img
-            className="w-screen  lg:max-w-none h-auto"
+            className="w-screen h-auto"
             alt={data.image.alt}
             src={data.image.src}
           />
