@@ -4,7 +4,6 @@ import { Layout } from "../components/layout";
 import { client } from "../.tina/__generated__/client";
 import { Customer } from "../.tina/__generated__/types";
 
-
 export default function HomePage(
   props: AsyncReturnType<typeof getStaticProps>["props"]
 ) {

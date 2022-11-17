@@ -1,5 +1,6 @@
 import React from "react";
 import type {
+  ContentQueryQuery,
   Customer,
   CustomerConnectionEdges,
   Page,
@@ -13,7 +14,7 @@ import { Project } from "./blocks/project";
 import { Testimonial } from "./blocks/testimonial";
 
 export const Blocks = (
-  props: Omit<Page, "id" | "_sys" | "_values"> & { customers: Customer[] }
+  props: ContentQueryQuery["page"] & { customers: Customer[] }
 ) => {
   return (
     <>

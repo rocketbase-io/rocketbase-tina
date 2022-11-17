@@ -27,11 +27,15 @@
   },
   "footer": {
     "color": "default",
-    "social": {
-      "facebook": "/",
-      "twitter": "/",
-      "instagram": "/"
-    }
+    "socials": [
+      {
+        "name": "Github",
+        "src": "https://github.com/rocketbase-io",
+        "icon": {
+          "name": "Github"
+        }
+      }
+    ]
   },
   "theme": {
     "color": "blue",

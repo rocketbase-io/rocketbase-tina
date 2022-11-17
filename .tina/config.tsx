@@ -8,6 +8,8 @@ import { customersBlockSchema } from "../components/blocks/customers";
 import { projectBlockSchema } from "../components/blocks/project";
 import { removeDiacritics } from "../util/util";
 import { technologySchema } from "../components/util/technology";
+import { iconSchema } from "../components/util/icon";
+import { iconTechnologySchema } from "../components/util/icon-technology";
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
@@ -144,28 +146,20 @@ const config = defineStaticConfig({
               {
                 type: "object",
                 label: "Social Links",
-                name: "social",
+                name: "socials",
+                list: true,
                 fields: [
                   {
                     type: "string",
-                    label: "Facebook",
-                    name: "facebook",
+                    name: "name",
+                    label: "Name",
                   },
                   {
                     type: "string",
-                    label: "Twitter",
-                    name: "twitter",
+                    name: "src",
+                    label: "URL",
                   },
-                  {
-                    type: "string",
-                    label: "Instagram",
-                    name: "instagram",
-                  },
-                  {
-                    type: "string",
-                    label: "Github",
-                    name: "github",
-                  },
+                  iconTechnologySchema,
                 ],
               },
             ],
