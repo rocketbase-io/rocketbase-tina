@@ -4,6 +4,7 @@ import { heroBlockSchema } from "../components/blocks/hero";
 import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { contentBlockSchema } from "../components/blocks/content";
+import { doubleContentBlockSchema } from "../components/blocks/double-content"
 import { customersBlockSchema } from "../components/blocks/customers";
 import { projectBlockSchema } from "../components/blocks/project";
 import { removeDiacritics } from "../util/util";
@@ -302,12 +303,13 @@ const config = defineStaticConfig({
               visualSelector: true,
             },
             templates: [
-              heroBlockSchema,
               bannerBlockSchema,
+              heroBlockSchema,
               featureBlockSchema,
               customersBlockSchema,
               projectBlockSchema,
               contentBlockSchema,
+              doubleContentBlockSchema,
               testimonialBlockSchema,
             ],
           },
