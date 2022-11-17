@@ -18,8 +18,7 @@ export const Technology = ({ data, className = "" }) => {
         style={{ backgroundColor: data?.secondaryColor}}
       >
         <IconTechnology
-          primaryColor={data?.primaryColor}
-          secondaryColor={data?.secondaryColor}
+          svgProps={{color:data?.primaryColor}}
           data={data?.icon}
         ></IconTechnology>
       </div>
