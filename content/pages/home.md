@@ -72,7 +72,7 @@ blocks:
     leftBody: |
       ## Interesse geweckt?
 
-      [info@rocketbase.io](mailto:info@rocketbase.io)
+      [info@rocketbase.io](mailto:info@rocketbase.io "info@rocketbase.io")\
       [+49 40 605 338840](tel://0049-40-605-3388-40)
     rightBody: >
       ## RocketBase HQ
@@ -83,14 +83,13 @@ blocks:
 
       \
 
-      **Katharinenstraße 30a **\
+      **Katharinenstraße 30a**\
 
       **20457 Hamburg**
 
 
-
       <Button buttonText="Google Maps" />&#x20;
-    ratio: '40'
+    ratio: '80'
     _template: doubleContent
 ---
 
