@@ -29,14 +29,18 @@ export const Header = ({ data }) => {
       : headerColor.default;
 
   const activeItemClasses = {
-    blue: "border-b-3 border-blue-200 dark:border-blue-700",
-    teal: "border-b-3 border-teal-200 dark:border-teal-700",
-    green: "border-b-3 border-green-200 dark:border-green-700",
-    red: "border-b-3 border-red-300 dark:border-red-700",
-    pink: "border-b-3 border-pink-200 dark:border-pink-700",
-    purple: "border-b-3 border-purple-200 dark:border-purple-700",
-    orange: "border-b-3 border-orange-200 dark:border-orange-700",
-    yellow: "border-b-3 border-yellow-300 dark:border-yellow-600",
+    blue: "bg-blue-700 text-white hover:bg-blue-700 md:bg-transparent md:!text-blue-200",
+    teal: "bg-teal-700 text-white hover:bg-teal-700 md:bg-transparent md:!text-teal-200",
+    green:
+      "bg-green-700 text-white hover:bg-green-700 md:bg-transparent md:!text-green-200",
+    red: "bg-red-700 text-white hover:bg-red-700 md:bg-transparent md:!text-red-200",
+    pink: "bg-pink-700 text-white hover:bg-pink-700 md:bg-transparent md:!text-pink-200",
+    purple:
+      "bg-purple-700 text-white hover:bg-purple-700 md:bg-transparent md:!text-purple-200",
+    orange:
+      "bg-orange-700 text-white hover:bg-orange-700 md:bg-transparent md:!text-orange-200",
+    yellow:
+      "bg-yellow-700 text-white hover:bg-yellow-700 md:bg-transparent md:!text-yellow-200",
   };
 
   // If we're on an admin path, other links should also link to their admin paths
@@ -106,7 +110,7 @@ export const Header = ({ data }) => {
           <button
             data-collapse-toggle="navbar-default"
             type="button"
-            className={`inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
+            className={`inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-600/30 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-600/30 dark:focus:ring-gray-600 text-white`}
             aria-controls="navbar-default"
             aria-expanded="false"
             onClick={toggleNav}
@@ -145,7 +149,7 @@ export const Header = ({ data }) => {
                       key={`${item.label}-${i}`}
                       className={`${
                         activeItem ? activeItemClasses[theme.color] : ""
-                      } text-white block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`}
+                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent  md:text-white`}
                     >
                       <Link href={`${prefix}/${item.href}`} passHref>
                         <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-2">
@@ -163,14 +167,14 @@ export const Header = ({ data }) => {
         className="absolute right-3 top-5 z-10 cursor-pointer select-none "
         onClick={toggleDarkMode}
       >
-          <Icon
-            data={{
-              name: "CloudMoon",
-              colorClass: "white",
-              sizeClass: "small",
-            }}
-            svgProps={{ weight: isDark ? "fill" : "regular" }}
-          ></Icon>
+        <Icon
+          data={{
+            name: "CloudMoon",
+            colorClass: "white",
+            sizeClass: "small",
+          }}
+          svgProps={{ weight: isDark ? "fill" : "regular" }}
+        ></Icon>
       </div>
     </div>
   );
