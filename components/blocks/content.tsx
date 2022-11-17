@@ -4,6 +4,7 @@ import { Section } from "../util/section";
 import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
+import { RichText } from "../util/rich-text";
 
 const components: Components<{
   Button: {
@@ -57,25 +58,7 @@ export const contentBlockSchema: TinaTemplate = {
       label: "Label",
       name: "label",
     },
-    {
-      type: "rich-text",
-      label: "Body",
-      name: "body",
-      templates: [
-        {
-          name: "Button",
-          label: "Button",
-          inline: true,
-          fields: [
-            {
-              name: "buttonText",
-              label: "Button Text",
-              type: "string",
-            },
-          ],
-        },
-      ],
-    },
+    RichText("body", "Body"),
     {
       type: "string",
       label: "Sub Title",

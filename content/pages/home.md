@@ -5,7 +5,8 @@ blocks:
       src: /uploads/homepage.png
       alt: RocketBase
     _template: banner
-  - body: >
+  - label: Einführung
+    body: >
       ## Mit individuellen Softwarelösungen schneller wachsen.
 
 
@@ -67,5 +68,29 @@ blocks:
     contentImage: ''
     reverse: true
     _template: content
+  - label: Kontakt
+    leftBody: |
+      ## Interesse geweckt?
+
+      [info@rocketbase.io](mailto:info@rocketbase.io)
+      [+49 40 605 338840](tel://0049-40-605-3388-40)
+    rightBody: >
+      ## RocketBase HQ
+
+
+      Unser schönes Büro ist einen Katzensprung von der Hamburger Speicherstadt
+      entfernt. Komm gerne vorbei, wenn du in der Gegend bist.\
+
+      \
+
+      **Katharinenstraße 30a **\
+
+      **20457 Hamburg**
+
+
+
+      <Button buttonText="Google Maps" />&#x20;
+    ratio: '40'
+    _template: doubleContent
 ---
 

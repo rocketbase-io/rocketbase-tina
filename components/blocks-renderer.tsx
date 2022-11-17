@@ -8,6 +8,7 @@ import type {
 import { Banner } from "./blocks/banner";
 import { Content } from "./blocks/content";
 import { Customers } from "./blocks/customers";
+import { DoubleContent } from "./blocks/double-content";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
 import { Project } from "./blocks/project";
@@ -29,6 +30,15 @@ export const Blocks = (
                     key={i + block.__typename}
                   >
                     <Content data={data} parentField={`blocks.${i}`} />
+                  </div>
+                );
+                case "PageBlocksDoubleContent":
+                return (
+                  <div
+                    data-tinafield={`blocks.${i}`}
+                    key={i + block.__typename}
+                  >
+                    <DoubleContent data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksCustomers":

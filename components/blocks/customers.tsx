@@ -24,8 +24,8 @@ export const Customers = ({ data, parentField = "" }) => {
                   return (
                     <img
                       src={customer.image}
-                      className="sm:w-6/12 md:w-4/12 w-full hover:grayscale-0  grayscale dark:invert dark:hover:invert-0 object-contain  duration-700 ease-in-out
-                      transtion
+                      className="sm:w-6/12 md:w-4/12 lg:w-3/12 w-full hover:grayscale-0  grayscale dark:invert dark:hover:invert-0 object-contain  duration-200 ease-in-out
+                      transtion !my-0 p-5
                       "
                       alt={customer.name}
                       key={customer.name}
