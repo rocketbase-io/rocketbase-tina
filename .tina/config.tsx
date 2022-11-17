@@ -3,7 +3,7 @@ import { featureBlockSchema } from "../components/blocks/features";
 import { heroBlockSchema } from "../components/blocks/hero";
 import { bannerBlockSchema } from "../components/blocks/banner";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
-import { contentImageBlockSchema } from "../components/blocks/content-image";
+import { contentBlockSchema } from "../components/blocks/content";
 import { customersBlockSchema } from "../components/blocks/customers";
 import { projectBlockSchema } from "../components/blocks/project";
 import { removeDiacritics } from "../util/util";
@@ -307,7 +307,7 @@ const config = defineStaticConfig({
               featureBlockSchema,
               customersBlockSchema,
               projectBlockSchema,
-              contentImageBlockSchema,
+              contentBlockSchema,
               testimonialBlockSchema,
             ],
           },

@@ -15,7 +15,7 @@ blocks:
       Kunden berichten und zeigen Ihnen ein paar Projekte, auf die wir besonders
       stolz sind.
     subtitle: Kundenstimmen & Referenzprojekte
-    _template: contentImage
+    _template: content
   - title: Was unsere Kunden über uns sagen
     showDetails: true
     amount: 4

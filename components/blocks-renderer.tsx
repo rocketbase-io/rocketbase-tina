@@ -6,7 +6,7 @@ import type {
   Page,
 } from "../.tina/__generated__/types";
 import { Banner } from "./blocks/banner";
-import { ContentImage } from "./blocks/content-image";
+import { Content } from "./blocks/content";
 import { Customers } from "./blocks/customers";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
@@ -22,13 +22,13 @@ export const Blocks = (
         ? props.blocks.map(function (block, i) {
             const data = { ...block, customers: props.customers };
             switch (block.__typename) {
-              case "PageBlocksContentImage":
+              case "PageBlocksContent":
                 return (
                   <div
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <ContentImage data={data} parentField={`blocks.${i}`} />
+                    <Content data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksCustomers":

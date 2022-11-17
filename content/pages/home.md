@@ -12,7 +12,7 @@ blocks:
       Wir unterstützen Unternehmen, in neue Markt- und Umsatz-Dimensionen
       vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
       hin zur Administration Ihrer neuen Software.
-    _template: contentImage
+    _template: content
   - label: Kurzbeschreibung
     body: >
       ## Mit individuellen Softwarelösungen schneller wachsen.
@@ -21,14 +21,14 @@ blocks:
       Wir unterstützen Unternehmen, in neue Markt- und Umsatz-Dimensionen
       vorzustoßen. Wir begleiten Sie von der Beratung über die Entwicklung bis
       hin zur Administration Ihrer neuen Software.
-    _template: contentImage
+    _template: content
   - label: Leistungen
     body: "## Vom Problem zu Ihrer individuellen Softwarelösung\n\nErzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine\_individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.\_Technologie-Beratung\_übernehmen genauso wie\_Hosting, wenn Sie Ihre Anwendung nicht on-premise betreiben wollen.\n\n<Button buttonText=\"Mehr erfahren\" />&#x20;\n"
     subtitle: Unsere Leistungen
     contentImage: /uploads/services.png
     reverse: false
     color: default
-    _template: contentImage
+    _template: content
   - label: Team
     body: >
       ## Mit Kompetenz und Spaß bei der Sache
@@ -45,7 +45,7 @@ blocks:
     contentImage: /uploads/team-intro-2022.png
     reverse: true
     color: ''
-    _template: contentImage
+    _template: content
   - title: Auszug unserer Kunden
     showDetails: false
     amount: 6
@@ -66,6 +66,6 @@ blocks:
       <Button buttonText="Mehr erfahren" />&#x20;
     contentImage: ''
     reverse: true
-    _template: contentImage
+    _template: content
 ---
 
