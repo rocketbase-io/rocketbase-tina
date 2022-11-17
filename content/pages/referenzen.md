@@ -56,5 +56,33 @@ blocks:
       - technology: content/technologies/kubernetes.md
       - technology: content/technologies/docker.md
     _template: project
+  - label: Kontakt
+    leftBody: |
+      ## Interesse geweckt?
+
+      &#x20;
+
+      [info@rocketbase.io](mailto:info@rocketbase.io "info@rocketbase.io")\
+      [+49 40 605 338840](tel://0049-40-605-3388-40)
+    rightBody: >
+      ## RocketBase HQ
+
+
+      &#x20;
+
+
+      Unser schönes Büro ist einen Katzensprung von der Hamburger Speicherstadt
+      entfernt. Komm gerne vorbei, wenn du in der Gegend bist.\
+
+      \
+
+      **Katharinenstraße 30a**\
+
+      **20457 Hamburg**
+
+
+      <Button buttonText="Google Maps" />&#x20;
+    ratio: '80'
+    _template: doubleContent
 ---
 
