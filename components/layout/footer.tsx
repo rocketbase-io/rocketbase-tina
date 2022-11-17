@@ -8,7 +8,13 @@ import { Icon } from "../util/icon";
 import { IconTechnology } from "../util/icon-technology";
 
 export const Footer = ({ data, icon, rawData, headerData }) => {
-  console.log(data);
+  const [prefix, setPrefix] = React.useState("");
+  React.useEffect(() => {
+    if (window.location.pathname.startsWith("/admin")) {
+      setPrefix("/admin");
+    }
+  });
+
   const theme = useTheme();
   const socialIconClasses = "h-7 w-auto";
   const socialIconColorClasses = {
@@ -25,7 +31,7 @@ export const Footer = ({ data, icon, rawData, headerData }) => {
 
   const footerColor = {
     default:
-      "text-gray-800 from-white to-gray-50 dark:from-gray-900 dark:to-gray-1000",
+      "dark:text-white from-white to-gray-50 dark:from-gray-900 dark:to-gray-1000",
     primary: {
       blue: "text-white from-blue-500 to-blue-700",
       teal: "text-white from-teal-500 to-teal-600",
@@ -49,9 +55,18 @@ export const Footer = ({ data, icon, rawData, headerData }) => {
         <div className="flex justify-between items-center gap-6 flex-wrap">
           <Link href="/" passHref>
             <a className="group mx-2 flex items-center font-bold tracking-tight text-gray-400 dark:text-gray-300 opacity-50 hover:opacity-100 transition duration-150 ease-out whitespace-nowrap">
-              <img src={headerData?.image} className="h-11"></img>
+              <img src={headerData?.image} className="h-11 invert dark:invert-0"></img>
             </a>
           </Link>
+          <div className="flex gap-4">
+            {headerData?.nav?.map((item, i) => {
+              return (
+                <Link href={`${prefix}/${item.href}`} passHref key={item.href}>
+                  <a className="opacity-50 hover:opacity-100">{item.label}</a>
+                </Link>
+              );
+            })}
+          </div>
           <div className="flex gap-4">
             {data?.socials?.map((social, i) => {
               return (
@@ -59,9 +74,9 @@ export const Footer = ({ data, icon, rawData, headerData }) => {
                   className="inline-block opacity-80 hover:opacity-100 transition ease-out duration-150"
                   href={social.src}
                   target="_blank"
+                  key={social.src}
                 >
                   <IconTechnology
-                    key={i}
                     data={{ name: social.name }}
                     className={`${socialIconClasses} ${
                       socialIconColorClasses[
