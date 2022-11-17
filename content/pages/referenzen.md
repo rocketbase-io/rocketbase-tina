@@ -10,6 +10,9 @@ blocks:
       ## Das haben unsere Kunden nun davon
 
 
+      &#x20;
+
+
       Unsere Ergebnisse sprechen für sich. Wir könnten erzählen, wie toll wir
       sind, aber wir sind – zugegeben - etwas befangen. Darum lassen wir unsere
       Kunden berichten und zeigen Ihnen ein paar Projekte, auf die wir besonders
@@ -22,6 +25,9 @@ blocks:
     _template: customers
   - name: Digitalisierung der Projektrealisierung
     description: >
+      &#x20;
+
+
       Für einen Herstellung von Hartwaren und Textilien entwickelte RocketBase
       eine Softwarelösung, mit dessen Hilfe die Koordination und Planung von
       Realisierungsprojekten in eine idividuelle Softwarelösung überführt wurde.
