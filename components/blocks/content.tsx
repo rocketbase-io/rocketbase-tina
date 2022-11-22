@@ -27,7 +27,7 @@ export const Content = ({ data, parentField = "" }) => {
         {data.contentImage && (data.reverse == false || !data.reverse) && (
           <img
             src={data?.contentImage}
-            className={`w-${data.imageWidth ?? 5}/12 h-full p-2`}
+            className={`w-${data.imageWidth ?? 5}/12 max-smd:w-full p-2`}
           ></img>
         )}
         <div className={`p-2`}>
