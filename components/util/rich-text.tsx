@@ -1,5 +1,32 @@
 import { RichTextField } from "@tinacms/schema-tools/dist/types";
 import { Field } from "@tinacms/toolkit/dist/react-tinacms";
+import {
+  Components,
+  TinaMarkdown,
+  TinaMarkdownContent,
+} from "tinacms/dist/rich-text";
+import { Button } from "./button";
+import { Icon, iconFields, iconSchema } from "./icon";
+import { IconTechnology, iconTechnologyFields } from "./icon-technology";
+
+//todo fix types
+const components: Components<{
+  button: any;
+  icon: any;
+  technologyIcon: any;
+}> = {
+  button: Button,
+  icon: Icon,
+  technologyIcon: IconTechnology,
+};
+
+export function Markdown({
+  content,
+}: {
+  content: TinaMarkdownContent | TinaMarkdownContent[];
+}) {
+  return <TinaMarkdown content={content} components={components} />;
+}
 
 export function RichText(name: string, label: string): RichTextField {
   return {
@@ -8,7 +35,7 @@ export function RichText(name: string, label: string): RichTextField {
     name: name,
     templates: [
       {
-        name: "Button",
+        name: "button",
         label: "Button",
         inline: true,
         fields: [
@@ -27,6 +54,30 @@ export function RichText(name: string, label: string): RichTextField {
             label: "Button Target",
             type: "string",
             options: ["_self", "_blank"],
+          },
+        ],
+      },
+      {
+        name: "icon",
+        label: "Icon",
+        inline: true,
+        fields: [
+          {
+            type: "object",
+            name: "data",
+            fields: iconFields,
+          },
+        ],
+      },
+      {
+        name: "technologyIcon",
+        label: "Technology Icon",
+        inline: true,
+        fields: [
+          {
+            type: "object",
+            name: "data",
+            fields: iconTechnologyFields,
           },
         ],
       },

@@ -82,12 +82,9 @@ export const IconTechnology = ({
   className?: string;
   tinaField?: string;
 }) => {
+  if (!data) return <></>;
+
   const theme = useTheme();
-
-  /* const iconName = data.name || Object.keys(iconOptions)[0];
-  const IconSVG = iconOptions[iconName][theme.icon === "boxicon" ? "bi" : "hi"];
-
-  const iconSizeClasses = data.size && iconSizeClass[data.size]; */
 
   const iconName = data.name;
 
@@ -134,41 +131,48 @@ export const IconTechnology = ({
     );
   }
 };
+export const iconTechnologyFields: SchemaField[] = [
+  {
+    type: "string",
+    label: "Color",
+    name: "colorClass",
+    options: Object.keys(iconColorClass).map((color) => ({
+      label: formatFieldLabel(color),
+      value: color,
+    })),
+  },
+  {
+    name: "sizeClass",
+    label: "Size",
+    type: "string",
+    options: ["small", "medium", "large"],
+  },
+  {
+    name: "styleClass",
+    label: "Style",
+    type: "string",
+    options: [
+      {
+        label: "Circle",
+        value: "circle",
+      },
+      {
+        label: "Float",
+        value: "float",
+      },
+    ],
+  },
+  {
+    type: "string",
+    label: "Icon",
+    name: "name",
+    options: iconLibraryKeys,
+  },
+];
 
 export const iconTechnologySchema: SchemaField & { fields: SchemaField[] } = {
   type: "object",
   label: "Icon",
   name: "icon",
-  fields: [
-    {
-      type: "string",
-      label: "Color",
-      name: "color",
-      options: Object.keys(iconColorClass).map((color) => ({
-        label: formatFieldLabel(color),
-        value: color,
-      })),
-    },
-    {
-      name: "style",
-      label: "Style",
-      type: "string",
-      options: [
-        {
-          label: "Circle",
-          value: "circle",
-        },
-        {
-          label: "Float",
-          value: "float",
-        },
-      ],
-    },
-    {
-      type: "string",
-      label: "Icon",
-      name: "name",
-      options: iconLibraryKeys,
-    },
-  ],
+  fields: iconTechnologyFields,
 };
