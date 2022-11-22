@@ -3,7 +3,26 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  purge: {
+    content: [
+      "./pages/**/*.{js,ts,jsx,tsx}",
+      "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+    safelist: [
+      "w-1/12",
+      "w-2/12",
+      "w-3/12",
+      "w-4/12",
+      "w-5/12",
+      "w-6/12",
+      "w-7/12",
+      "w-8/12",
+      "w-9/12",
+      "w-10/12",
+      "w-11/12",
+    ],
+  },
+
   darkMode: "class",
   theme: {
     colors: {
@@ -92,7 +111,7 @@ module.exports = {
     },
     extend: {
       scale: {
-       102: "102%" 
+        102: "102%",
       },
       textDecoration: ["active"],
       opacity: {

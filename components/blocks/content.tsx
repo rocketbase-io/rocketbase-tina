@@ -15,24 +15,31 @@ const components: Components<{
 };
 
 export const Content = ({ data, parentField = "" }) => {
+  console.log(data);
   return (
     <Section color={data.color}>
       <Container
-        className={`max-w-8xl prose prose-lg smd:flex smd:items-center ${
+        className={`max-w-8xl prose prose-lg smd:flex smd:items-center  ${
           data.color === "primary" ? `prose-primary` : `dark:prose-dark`
         }`}
         data-tinafield={`${parentField}.body`}
         size="large"
       >
         {data.contentImage && (data.reverse == false || !data.reverse) && (
-          <img src={data?.contentImage} className="smd:w-5/12 h-full p-2"></img>
+          <img
+            src={data?.contentImage}
+            className={`w-${data.imageWidth ?? 5}/12 h-full p-2`}
+          ></img>
         )}
-        <div className={` p-2 ${data.contentImage ? "smd:w-7/12" : ""}`}>
+        <div className={`p-2`}>
           <h4>{data?.subtitle}</h4>
           <TinaMarkdown content={data?.body} components={components} />
         </div>
         {data.contentImage && data.reverse == true && (
-          <img src={data?.contentImage} className="smd:w-5/12 h-full p-2"></img>
+          <img
+            src={data?.contentImage}
+            className={`w-${data.imageWidth ?? 5}/12 max-smd:w-full p-2`}
+          ></img>
         )}
       </Container>
     </Section>
@@ -68,6 +75,12 @@ export const contentBlockSchema: TinaTemplate = {
       type: "image",
       label: "Image",
       name: "contentImage",
+    },
+    {
+      type: "string",
+      label: "Image Width",
+      name: "imageWidth",
+      options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
     },
     {
       type: "boolean",

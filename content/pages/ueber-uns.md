@@ -81,6 +81,7 @@ blocks:
       B2B-Unternehmen deutschlandweit bei der Digitalisierung und Optimierung
       ihrer Geschäftsprozesse.
     contentImage: /uploads/priess.png
+    imageWidth: '3'
     reverse: true
     _template: content
   - label: Jobs
