@@ -297,6 +297,11 @@ const config = defineStaticConfig({
             required: true,
           },
           {
+            type: "boolean",
+            label: "Dark Header",
+            name: "darkHeader",
+          },
+          {
             type: "object",
             list: true,
             name: "blocks",

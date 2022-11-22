@@ -1,5 +1,6 @@
 ---
 title: Büro
+darkHeader: true
 blocks:
   - image:
       src: /uploads/meeting-bg.jpg
@@ -59,7 +60,7 @@ blocks:
     reverse: true
     _template: content
   - label: Sonniger Team-Raum
-    body: |+
+    body: |
       ## Sonniger Team-Raum
 
       &#x20;&#x20;
@@ -67,12 +68,11 @@ blocks:
       * Zwei 2er Schreibtisch-Blöcke
       * Ein höhenverstellbarer Schreibtisch
       * Mobile-TV für Besprechungen
-
     contentImage: /uploads/04-buero-4er.jpg
     reverse: false
     _template: content
   - label: Gemeinschaftsräume + Außensicht
-    body: |+
+    body: |
       ### Gemeinschaftsräume + Außensicht
 
       &#x20;&#x20;
@@ -85,7 +85,6 @@ blocks:
       * Gemeinschaftsräume
         * Pantryküche (mit Mikrowelle, Kaffeemaschine, Geschirrspüler, Kühlschrank)
         * Kochnische (Backofen, 2 Ceranfelder, Reiskocher, Gefrierschrank) + rollendes "Sofa"
-
     _template: content
   - label: Kontakt
     leftBody: |

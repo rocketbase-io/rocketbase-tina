@@ -1,5 +1,6 @@
 ---
 title: Leistungen
+darkHeader: true
 blocks:
   - label: Content
     body: >

@@ -5,7 +5,15 @@ import { Footer } from "./footer";
 import layoutData from "../../content/global/index.json";
 import { Theme } from "./theme";
 
-export const Layout = ({ rawData = {}, data = layoutData, children }) => {
+export const Layout = ({
+  rawData = {},
+  data = layoutData,
+  children,
+}: {
+  rawData: any;
+  data: typeof layoutData;
+  children: any;
+}) => {
   return (
     <>
       <Head>
@@ -40,7 +48,7 @@ export const Layout = ({ rawData = {}, data = layoutData, children }) => {
             data.theme.font === "sans" && "font-sans"
           }`}
         >
-          <Header data={data?.header} />
+          <Header data={data?.header} dark={rawData?.page?.darkHeader} />
           <div className="flex-1 text-gray-800 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 flex flex-col">
             {children}
           </div>

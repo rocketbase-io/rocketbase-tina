@@ -5,12 +5,12 @@ import { useTheme } from ".";
 import { Button } from "tinacms";
 import { Icon } from "../util/icon";
 
-export const Header = ({ data }) => {
+export const Header = ({ data, dark }) => {
   const theme = useTheme();
 
   const headerColor = {
     default:
-      "text-black dark:text-white from-gray-50 to-white dark:from-gray-700 dark:to-gray-800",
+      "text-white dark:text-white from-gray-50 to-white dark:from-gray-700 dark:to-gray-800",
     primary: {
       blue: "text-white from-blue-300 to-blue-500",
       teal: "text-white from-teal-400 to-teal-500",
@@ -29,18 +29,18 @@ export const Header = ({ data }) => {
       : headerColor.default;
 
   const activeItemClasses = {
-    blue: "bg-blue-700 text-white hover:bg-blue-700 md:bg-transparent md:!text-blue-200",
-    teal: "bg-teal-700 text-white hover:bg-teal-700 md:bg-transparent md:!text-teal-200",
+    blue: "bg-blue-700 text-white hover:bg-blue-700 md:bg-transparent md:!text-blue-300",
+    teal: "bg-teal-700 text-white hover:bg-teal-700 md:bg-transparent md:!text-teal-300",
     green:
-      "bg-green-700 text-white hover:bg-green-700 md:bg-transparent md:!text-green-200",
-    red: "bg-red-700 text-white hover:bg-red-700 md:bg-transparent md:!text-red-200",
-    pink: "bg-pink-700 text-white hover:bg-pink-700 md:bg-transparent md:!text-pink-200",
+      "bg-green-700 text-white hover:bg-green-700 md:bg-transparent md:!text-green-300",
+    red: "bg-red-700 text-white hover:bg-red-700 md:bg-transparent md:!text-red-300",
+    pink: "bg-pink-700 text-white hover:bg-pink-700 md:bg-transparent md:!text-pink-300",
     purple:
-      "bg-purple-700 text-white hover:bg-purple-700 md:bg-transparent md:!text-purple-200",
+      "bg-purple-700 text-white hover:bg-purple-700 md:bg-transparent md:!text-purple-300",
     orange:
-      "bg-orange-700 text-white hover:bg-orange-700 md:bg-transparent md:!text-orange-200",
+      "bg-orange-700 text-white hover:bg-orange-700 md:bg-transparent md:!text-orange-300",
     yellow:
-      "bg-yellow-700 text-white hover:bg-yellow-700 md:bg-transparent md:!text-yellow-200",
+      "bg-yellow-700 text-white hover:bg-yellow-700 md:bg-transparent md:!text-yellow-300",
   };
 
   // If we're on an admin path, other links should also link to their admin paths
@@ -87,7 +87,11 @@ export const Header = ({ data }) => {
   };
 
   return (
-    <div className={`bg-gradient-to-b ${headerColorCss}`}>
+    <div
+      className={`bg-gradient-to-b ${headerColorCss} ${
+        dark ? "!text-gray-900" : ""
+      }`}
+    >
       <Container size="custom" className="py-0 absolute z-10 w-full">
         <div className="flex items-center justify-between flex-wrap pl-5 pr-5">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
@@ -103,14 +107,17 @@ export const Header = ({ data }) => {
                   className="inline-block h-auto w-10 mr-1"
                 />{" "}
                 Tina Starter */}
-                <img src={data?.image} className="h-11"></img>
+                <img
+                  src={data?.image}
+                  className={`h-11 ${dark ? "invert" : ""} dark:invert-0`}
+                ></img>
               </a>
             </Link>
           </h4>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
-            className={`inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-600/30 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-600/30 dark:focus:ring-gray-600 text-white`}
+            className={`inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-600/30 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-600/30 dark:focus:ring-gray-600 `}
             aria-controls="navbar-default"
             aria-expanded="false"
             onClick={toggleNav}
@@ -136,7 +143,7 @@ export const Header = ({ data }) => {
           <div
             className={`w-full md:block md:w-auto ${isActive ? "" : "hidden"}`}
           >
-            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent dark:border-gray-700">
+            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent dark:border-gray-700 max-md:text-white dark:text-white">
               {data.nav &&
                 data.nav.map((item, i) => {
                   const activeItem =
@@ -149,7 +156,7 @@ export const Header = ({ data }) => {
                       key={`${item.label}-${i}`}
                       className={`${
                         activeItem ? activeItemClasses[theme.color] : ""
-                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent  md:text-white`}
+                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent  `}
                     >
                       <Link href={`${prefix}/${item.href}`} passHref>
                         <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-2">
@@ -173,6 +180,7 @@ export const Header = ({ data }) => {
             colorClass: "white",
             sizeClass: "small",
           }}
+          className={`${dark ? "text-gray-900" : ""} dark:text-white`}
           svgProps={{ weight: isDark ? "fill" : "regular" }}
         ></Icon>
       </div>

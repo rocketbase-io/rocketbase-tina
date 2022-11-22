@@ -1,5 +1,6 @@
 ---
 title: Jobs
+darkHeader: true
 blocks:
   - label: Werde Teil unseres Teams
     body: >
