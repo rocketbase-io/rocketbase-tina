@@ -11,6 +11,7 @@ import { Customers } from "./blocks/customers";
 import { DoubleContent } from "./blocks/double-content";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
+import { Images } from "./blocks/images";
 import { Project } from "./blocks/project";
 import { QuadraContent } from "./blocks/quadra-content";
 import { Testimonial } from "./blocks/testimonial";
@@ -33,7 +34,7 @@ export const Blocks = (
                     <Content data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
-                case "PageBlocksDoubleContent":
+              case "PageBlocksDoubleContent":
                 return (
                   <div
                     data-tinafield={`blocks.${i}`}
@@ -42,13 +43,22 @@ export const Blocks = (
                     <DoubleContent data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
-                case "PageBlocksQuadraContent":
+              case "PageBlocksQuadraContent":
                 return (
                   <div
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
                     <QuadraContent data={data} parentField={`blocks.${i}`} />
+                  </div>
+                );
+              case "PageBlocksImages":
+                return (
+                  <div
+                    data-tinafield={`blocks.${i}`}
+                    key={i + block.__typename}
+                  >
+                    <Images data={data} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksCustomers":

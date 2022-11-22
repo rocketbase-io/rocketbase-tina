@@ -7,6 +7,7 @@ import { contentBlockSchema } from "../components/blocks/content";
 import { doubleContentBlockSchema } from "../components/blocks/double-content";
 import { quadraContentBlockSchema } from "../components/blocks/quadra-content";
 import { customersBlockSchema } from "../components/blocks/customers";
+import { imagesBlockSchema } from "../components/blocks/images";
 import { projectBlockSchema } from "../components/blocks/project";
 import { removeDiacritics } from "../util/util";
 import { technologySchema } from "../components/util/technology";
@@ -313,6 +314,7 @@ const config = defineStaticConfig({
               doubleContentBlockSchema,
               quadraContentBlockSchema,
               testimonialBlockSchema,
+              imagesBlockSchema,
             ],
           },
         ],
