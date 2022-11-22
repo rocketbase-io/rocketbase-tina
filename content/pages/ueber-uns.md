@@ -96,7 +96,7 @@ blocks:
       aktuellen Stellenangebote an.
 
 
-      <Button buttonText="Mehr zu Jobs" />&#x20;
+      <Button buttonText="Mehr zu Jobs" buttonHref="/jobs" />&#x20;
     _template: content
   - label: Kontakt
     leftBody: |
@@ -123,7 +123,9 @@ blocks:
       **20457 Hamburg**
 
 
-      <Button buttonText="Google Maps" />&#x20;
+      <Button buttonText="Google Maps"
+      buttonHref="https://goo.gl/maps/yAsEVQJVPvR57par6" buttonTarget="_blank"
+      />&#x20;
     ratio: '80'
     _template: doubleContent
 ---

@@ -17,6 +17,17 @@ export function RichText(name: string, label: string): RichTextField {
             label: "Button Text",
             type: "string",
           },
+          {
+            name: "buttonHref",
+            label: "Button URL",
+            type: "string",
+          },
+          {
+            name: "buttonTarget",
+            label: "Button Target",
+            type: "string",
+            options: ["_self", "_blank"],
+          },
         ],
       },
     ],

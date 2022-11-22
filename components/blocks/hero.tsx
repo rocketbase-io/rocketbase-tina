@@ -5,6 +5,7 @@ import { Section } from "../util/section";
 import { useTheme } from "../layout";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
+import { RichText } from "../util/rich-text";
 
 export const Hero = ({ data, parentField }) => {
   const theme = useTheme();
@@ -109,11 +110,7 @@ export const heroBlockSchema: TinaTemplate = {
       label: "Headline",
       name: "headline",
     },
-    {
-      label: "Text",
-      name: "text",
-      type: "rich-text",
-    },
+    RichText("text", "Text"),
     {
       label: "Actions",
       name: "actions",

@@ -18,7 +18,7 @@ blocks:
       hin zur Administration Ihrer neuen Software.
     _template: content
   - label: Leistungen
-    body: "## Vom Problem zu Ihrer individuellen Softwarelösung\n\n&#x20;\n\nErzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine\_individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.\_Technologie-Beratung\_übernehmen genauso wie\_Hosting, wenn Sie Ihre Anwendung nicht on-premise betreiben wollen.\n\n<Button buttonText=\"Mehr erfahren\" />&#x20;\n"
+    body: "## Vom Problem zu Ihrer individuellen Softwarelösung\n\n&#x20;\n\nErzählen Sie uns von Ihrem Problem, Ihrem Markt, Ihren Prozessen und Ihren Zielen. Wir übersetzen Ihre Anforderungen gemeinsam mit Ihnen in eine\_individuelle Software, die 100% zu Ihren Prozessen passt und mitwachsen kann. Kosteneffizient und zukunftssicher. Wir entwickeln aber nicht nur.\_Technologie-Beratung\_übernehmen genauso wie\_Hosting, wenn Sie Ihre Anwendung nicht on-premise betreiben wollen.\n\n<Button buttonText=\"Mehr erfahren\" buttonHref=\"/leistungen\" />&#x20;\n"
     subtitle: Unsere Leistungen
     contentImage: /uploads/services.png
     reverse: false
@@ -40,6 +40,9 @@ blocks:
       Dass wir langjährige Expertise in der Softwareentwicklung mitbringen, ist
       für uns selbstverständlich. Sei trotzdem noch mal gesagt. Ach ja, und ein
       vielseitiges Branchenknowhow haben wir auch.
+
+
+      <Button buttonText="Mehr erfahren" buttonHref="/ueber-uns" />&#x20;
     contentImage: /uploads/team-intro-2022.png
     reverse: true
     color: ''
@@ -64,7 +67,7 @@ blocks:
       secret, aber ein paar Fakten dürfen wir schon verraten.
 
 
-      <Button buttonText="Mehr erfahren" />&#x20;
+      <Button buttonText="Mehr erfahren" buttonHref="/referenzen" />&#x20;
     contentImage: ''
     reverse: true
     _template: content
@@ -93,7 +96,9 @@ blocks:
       **20457 Hamburg**
 
 
-      <Button buttonText="Google Maps" />&#x20;
+      <Button buttonText="Google Maps"
+      buttonHref="https://goo.gl/maps/yAsEVQJVPvR57par6" buttonTarget="_blank"
+      />&#x20;
     ratio: '80'
     _template: doubleContent
 ---

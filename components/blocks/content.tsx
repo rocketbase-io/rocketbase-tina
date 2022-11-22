@@ -15,7 +15,6 @@ const components: Components<{
 };
 
 export const Content = ({ data, parentField = "" }) => {
-  console.log(data);
   return (
     <Section color={data.color}>
       <Container
