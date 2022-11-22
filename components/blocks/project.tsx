@@ -4,7 +4,7 @@ import { Section } from "../util/section";
 import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
 import type { Template, TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
-import { RichText } from "../util/rich-text";
+import { Markdown, RichText } from "../util/rich-text";
 import { Technology, technologySchema } from "../util/technology";
 
 const components: Components<{
@@ -26,7 +26,7 @@ export const Project = ({ data, parentField = "" }) => {
         size="large"
       >
         <h2>{data?.name}</h2>
-        <TinaMarkdown content={data?.description} components={components} />
+        <Markdown content={data?.description} />
         <div className="smd:flex">
           {data.exampleImage && (
             <img
@@ -58,13 +58,15 @@ export const Project = ({ data, parentField = "" }) => {
               )}
             </dl>
             <div className="mt-8" style={{ willChange: "contents" }}>
-              {data?.technologies.filter(ref => ref.technology?.name).map((ref) => (
-                <Technology
-                  className="mb-2 mr-2 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
-                  data={ref.technology}
-                  key={ref.technology?.name}
-                ></Technology>
-              ))}
+              {data?.technologies
+                .filter((ref) => ref.technology?.name)
+                .map((ref) => (
+                  <Technology
+                    className="mb-2 mr-2 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
+                    data={ref.technology}
+                    key={ref.technology?.name}
+                  ></Technology>
+                ))}
             </div>
           </div>
         </div>

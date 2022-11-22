@@ -14,45 +14,41 @@ const components: Components<{
   Button: Button,
 };
 
-export const Content = ({ data, parentField = "" }) => {
+export const QuadraContent = ({ data, parentField = "" }) => {
   return (
     <Section color={data.color}>
       <Container
-        className={`max-w-8xl prose prose-lg smd:flex smd:items-center  ${
+        className={`max-w-8xl prose prose-lg smd:flex  smd:flex-wrap ${
           data.color === "primary" ? `prose-primary` : `dark:prose-dark`
         }`}
         data-tinafield={`${parentField}.body`}
         size="large"
       >
-        {data.contentImage && (data.reverse == false || !data.reverse) && (
-          <img
-            src={data?.contentImage}
-            className={`w-${data.imageWidth ?? 5}/12 max-smd:w-full p-2`}
-          ></img>
-        )}
-        <div className={`p-2`}>
-          <h4>{data?.subtitle}</h4>
-          <Markdown content={data?.body} />
+        <div className="p-5 smd:w-6/12">
+          <Markdown content={data?.first} />
         </div>
-        {data.contentImage && data.reverse == true && (
-          <img
-            src={data?.contentImage}
-            className={`w-${data.imageWidth ?? 5}/12 max-smd:w-full p-2`}
-          ></img>
-        )}
+        <div className="p-5 smd:w-6/12">
+          <Markdown content={data?.second} />
+        </div>
+        <div className="p-5 smd:w-6/12">
+          <Markdown content={data?.third} />
+        </div>
+        <div className="p-5 smd:w-6/12">
+          <Markdown content={data?.fourth} />
+        </div>
       </Container>
     </Section>
   );
 };
 
-export const contentBlockSchema: TinaTemplate = {
-  name: "content",
-  label: "Content",
+export const quadraContentBlockSchema: TinaTemplate = {
+  name: "quadraContent",
+  label: "Content with four Elements",
   ui: {
     previewSrc: "/blocks/content.png",
     defaultItem: {
       body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-      label: "Content",
+      label: "Content with four Elements",
     },
     itemProps: (item) => {
       return { label: item?.label };
@@ -64,28 +60,10 @@ export const contentBlockSchema: TinaTemplate = {
       label: "Label",
       name: "label",
     },
-    RichText("body", "Body"),
-    {
-      type: "string",
-      label: "Sub Title",
-      name: "subtitle",
-    },
-    {
-      type: "image",
-      label: "Image",
-      name: "contentImage",
-    },
-    {
-      type: "string",
-      label: "Image Width",
-      name: "imageWidth",
-      options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
-    },
-    {
-      type: "boolean",
-      label: "Reverse",
-      name: "reverse",
-    },
+    RichText("first", "First Body"),
+    RichText("second", "Second Body"),
+    RichText("third", "Third Body"),
+    RichText("fourth", "Fourth Body"),
     {
       type: "string",
       label: "Color",

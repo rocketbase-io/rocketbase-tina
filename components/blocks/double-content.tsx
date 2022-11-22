@@ -4,7 +4,7 @@ import { Section } from "../util/section";
 import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
-import { RichText } from "../util/rich-text";
+import { Markdown, RichText } from "../util/rich-text";
 
 const components: Components<{
   Button: {
@@ -24,11 +24,14 @@ export const DoubleContent = ({ data, parentField = "" }) => {
         data-tinafield={`${parentField}.body`}
         size="large"
       >
-        <div className={`px-5 max-smd:!w-full`} style={{width:`${data?.ratio}%`}}>
-          <TinaMarkdown content={data?.leftBody} components={components} />
+        <div
+          className={`px-5 max-smd:!w-full`}
+          style={{ width: `${data?.ratio}%` }}
+        >
+          <Markdown content={data?.leftBody} />
         </div>
         <div className={`px-5`}>
-          <TinaMarkdown content={data?.rightBody} components={components} />
+          <Markdown content={data?.rightBody} />
         </div>
       </Container>
     </Section>
@@ -60,7 +63,28 @@ export const doubleContentBlockSchema: TinaTemplate = {
       type: "string",
       name: "ratio",
       label: "Ratio",
-      options: ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100", "110","120", "130", "140", "150","160","170","180","190","200"],
+      options: [
+        "10",
+        "20",
+        "30",
+        "40",
+        "50",
+        "60",
+        "70",
+        "80",
+        "90",
+        "100",
+        "110",
+        "120",
+        "130",
+        "140",
+        "150",
+        "160",
+        "170",
+        "180",
+        "190",
+        "200",
+      ],
     },
     {
       type: "string",

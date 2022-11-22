@@ -81,7 +81,7 @@ blocks:
       **20457 Hamburg**
 
 
-      <Button buttonText="Google Maps"
+      <button buttonText="Google Maps"
       buttonHref="https://goo.gl/maps/yAsEVQJVPvR57par6" buttonTarget="_blank"
       />&#x20;
     ratio: '80'

@@ -22,7 +22,7 @@ export const Feature = ({ featuresColor, data, tinaField }) => {
       {data.title && (
         <h3
           data-tinafield={`${tinaField}.title`}
-          className="text-2xl font-semibold title-font"
+          className="text-2xl font-semibold title-font  !my-1"
         >
           {data.title}
         </h3>
@@ -44,20 +44,26 @@ export const Features = ({ data, parentField }) => {
   return (
     <Section color={data.color}>
       <Container
-        className={`flex flex-wrap gap-x-10 gap-y-8 text-left`}
+        className={`max-w-8xl prose prose-lg ${
+          data.color === "primary" ? `prose-primary` : `dark:prose-dark`
+        }`}
         size="large"
       >
-        {data.items &&
-          data.items.map(function (block, i) {
-            return (
-              <Feature
-                tinaField={`${parentField}.items.${i}`}
-                featuresColor={data.color}
-                key={i}
-                data={block}
-              />
-            );
-          })}
+        <h4>{data.subTitle}</h4>
+        <h2>{data.title}</h2>
+        <div className="flex flex-wrap gap-x-10 gap-y-8">
+          {data.items &&
+            data.items.map(function (block, i) {
+              return (
+                <Feature
+                  tinaField={`${parentField}.items.${i}`}
+                  featuresColor={data.color}
+                  key={i}
+                  data={block}
+                />
+              );
+            })}
+        </div>
       </Container>
     </Section>
   );
@@ -67,8 +73,9 @@ const defaultFeature = {
   title: "Here's Another Feature",
   text: "This is where you might talk about the feature, if this wasn't just filler text.",
   icon: {
-    color: "",
-    style: "float",
+    colorClass: "",
+    styleClass: "float",
+    sizeClass: "large",
     name: "",
   },
 };
@@ -81,8 +88,23 @@ export const featureBlockSchema: TinaTemplate = {
     defaultItem: {
       items: [defaultFeature, defaultFeature, defaultFeature],
     },
+    itemProps: (item) => {
+      return {
+        label: item?.title,
+      };
+    },
   },
   fields: [
+    {
+      name: "title",
+      label: "Title",
+      type: "string",
+    },
+    {
+      name: "subTitle",
+      label: "Sub Title",
+      type: "string",
+    },
     {
       type: "object",
       label: "Feature Items",
