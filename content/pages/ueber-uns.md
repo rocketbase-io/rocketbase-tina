@@ -14,6 +14,38 @@ blocks:
     contentImage: /uploads/team-intro-2022.png
     reverse: true
     _template: content
+  - label: Mission
+    body: >+
+      ## Unsere Mission
+
+
+      &#x20;&#x20;
+
+
+      Wir unterstützen mittelständische Unternehmen und Konzerne in der
+      Digitalisierung ihrer Geschäftsprozesse. Wir entwickeln gemeinsam mit
+      ihnen individuelle Softwarelösungen, die Wachstum möglich oder einfacher
+      machen.
+
+
+      ## Unsere Stärken
+
+
+      * Wir denken out of the box.
+
+      * Wir sind ein starkes Team.
+
+      * Wir kommunizieren auf Augenhöhe.
+
+      * Wir lieben IT.
+
+      * Wir arbeiten agil.
+
+      * Wir halten es pragmatisch.
+
+    contentImage: /uploads/logo-illustration.png
+    imageWidth: '2'
+    _template: content
   - label: Individualentwicklung
     body: >
       ## Warum Individualentwicklung?
