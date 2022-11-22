@@ -78,11 +78,7 @@ export const Footer = ({ data, icon, rawData, headerData }) => {
                 >
                   <IconTechnology
                     data={{ name: social.name }}
-                    className={`${socialIconClasses} ${
-                      socialIconColorClasses[
-                        data.color === "primary" ? "primary" : theme.color
-                      ]
-                    }`}
+                    className={`${socialIconClasses} !text-gray-600 dark:!text-gray-200 `}
                   />
                 </a>
               );
