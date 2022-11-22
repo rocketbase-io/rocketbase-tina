@@ -30,7 +30,7 @@ export const Content = ({ data, parentField = "" }) => {
             className={`w-${data.imageWidth ?? 5}/12 max-smd:w-full p-2`}
           ></img>
         )}
-        <div className={`p-2`}>
+        <div className={`p-2 w-full`}>
           <h4>{data?.subtitle}</h4>
           <Markdown content={data?.body} />
         </div>
