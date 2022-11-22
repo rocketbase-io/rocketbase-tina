@@ -225,6 +225,14 @@ const config = defineStaticConfig({
                     value: "nunito",
                   },
                   {
+                    label: "DeliveryNote-Regular",
+                    value: "note",
+                  },
+                  {
+                    label: "MohrAlt-Light",
+                    value: "mohr",
+                  },
+                  {
                     label: "Lato",
                     value: "lato",
                   },

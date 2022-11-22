@@ -39,7 +39,7 @@
   },
   "theme": {
     "color": "blue",
-    "font": "sans",
+    "font": "mohr",
     "icon": "boxicon",
     "darkMode": "system"
   }

@@ -130,6 +130,8 @@ module.exports = {
       fontFamily: {
         nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
         lato: ["Lato", ...defaultTheme.fontFamily.sans],
+        mohr: ["MohrAlt-Light", ...defaultTheme.fontFamily.sans],
+        note: ["DeliveryNote-Regular", ...defaultTheme.fontFamily.sans]
       },
       typography: (theme) => ({
         DEFAULT: {
