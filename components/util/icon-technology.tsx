@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as simpleIcons from "@icons-pack/react-simple-icons";
+/* import * as simpleIcons from "@icons-pack/react-simple-icons"; */
 import { useTheme } from "../layout";
 
 import type { SchemaField, TinaField } from "tinacms";
@@ -54,7 +54,10 @@ const formatFieldLabel = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-const iconLibrary = simpleIcons;
+const iconLibrary = []
+const iconLibraryKeys  = []
+
+/* const iconLibrary = simpleIcons;
 
 const iconLibraryKeys: {
   label: string;
@@ -62,7 +65,7 @@ const iconLibraryKeys: {
 }[] = Object.keys(iconLibrary).map((icon: keyof typeof iconLibrary) => ({
   label: formatFieldLabel(icon),
   value: icon,
-}));
+})); */
 
 export const IconTechnology = ({
   data,
@@ -72,7 +75,7 @@ export const IconTechnology = ({
   svgProps,
 }: {
   data: {
-    name: keyof typeof iconLibrary;
+    name: string;
     sizeClass?: keyof typeof iconSizeClass;
     colorClass?: keyof typeof iconColorClass | "primary";
     styleClass?: "circle" | "float";
