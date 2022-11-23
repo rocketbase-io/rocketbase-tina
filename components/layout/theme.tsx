@@ -8,13 +8,22 @@ export const useTheme = () => React.useContext(ThemeContext);
 const updateRenderColorMode = (themeMode: "dark" | "light") => {
   if (typeof window !== "undefined") {
     const root = window.document.documentElement;
+
     root.classList.remove("dark");
     root.classList.remove("light");
-    root.classList.add(themeMode);
+
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && themeMode === "dark")
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }
 };
 
-const getUserSystemDarkMode = () => {
+export const getUserSystemDarkMode = () => {
   if (typeof window !== "undefined") {
     const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
 

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Container } from "../util/container";
 import { useTheme } from ".";
 import { Button } from "tinacms";
 import { Icon } from "../util/icon";
+import { getUserSystemDarkMode } from "./theme";
 
 export const Header = ({ data, dark }) => {
   const theme = useTheme();
@@ -68,13 +69,16 @@ export const Header = ({ data, dark }) => {
   const getIsDark = () => {
     if (typeof window === "undefined") return;
     return (
-      Array.from(window.document.documentElement.classList.values()).find(
-        (v) => v == "dark"
-      ) != undefined
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && getUserSystemDarkMode() === "dark")
     );
   };
 
-  const [isDark, setIsDark] = useState(getIsDark());
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(getIsDark());
+  });
 
   const toggleDarkMode = (event) => {
     if (typeof window === "undefined") return;
@@ -83,6 +87,7 @@ export const Header = ({ data, dark }) => {
     root.classList.remove("dark");
     root.classList.remove("light");
     root.classList.add(dark ? "light" : "dark");
+    localStorage.setItem("theme", dark ? "light" : "dark");
     setIsDark(!dark);
   };
 
