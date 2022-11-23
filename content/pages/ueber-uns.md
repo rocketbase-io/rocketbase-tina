@@ -13,9 +13,11 @@ blocks:
       Team-Spirit, Enthusiasmus und Leidenschaft für die IT-Welt
     contentImage: /uploads/team-intro-2022.png
     reverse: true
+    bgImage: /uploads/concrete-white.jpg
+    bgImageDark: /uploads/about-us.png
     _template: content
   - label: Mission
-    body: >+
+    body: >
       ## Unsere Mission
 
 
@@ -42,7 +44,6 @@ blocks:
       * Wir arbeiten agil.
 
       * Wir halten es pragmatisch.
-
     contentImage: /uploads/logo-illustration.png
     imageWidth: '2'
     _template: content

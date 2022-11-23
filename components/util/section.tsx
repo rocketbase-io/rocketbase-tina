@@ -1,7 +1,17 @@
 import React from "react";
 import { useTheme } from "../layout";
 
-export const Section = ({ children, color = "", className = "" }) => {
+export const Section = ({
+  children,
+  color = "",
+  className = "",
+  style = {},
+}: {
+  children?: any;
+  color?: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) => {
   const theme = useTheme();
   const sectionColor = {
     default:
@@ -31,6 +41,7 @@ export const Section = ({ children, color = "", className = "" }) => {
 
   return (
     <section
+      style={style}
       className={`flex-1 relative transition duration-150 ease-out body-font overflow-hidden ${sectionColorCss} ${className}`}
     >
       {children}

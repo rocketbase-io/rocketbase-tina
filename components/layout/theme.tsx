@@ -1,7 +1,11 @@
 import * as React from "react";
 import GlobalData from "../../content/global/index.json";
 
-const ThemeContext = React.createContext(GlobalData.theme);
+const ThemeContext = React.createContext({
+  ...GlobalData.theme,
+  toggleDarkMode: () => {},
+  isDark: false,
+});
 
 export const useTheme = () => React.useContext(ThemeContext);
 
@@ -23,6 +27,14 @@ const updateRenderColorMode = (themeMode: "dark" | "light") => {
   }
 };
 
+const getIsDark = () => {
+  if (typeof window === "undefined") return;
+  return (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && getUserSystemDarkMode() === "dark")
+  );
+};
+
 export const getUserSystemDarkMode = () => {
   if (typeof window !== "undefined") {
     const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
@@ -36,6 +48,21 @@ export const getUserSystemDarkMode = () => {
 };
 
 export const Theme = ({ data, children }) => {
+  const [isDark, setIsDark] = React.useState(false);
+  React.useEffect(() => {
+    setIsDark(getIsDark());
+  });
+  const toggleDarkMode = () => {
+    if (typeof window === "undefined") return;
+    const root = window.document.documentElement;
+    const dark = getIsDark();
+    root.classList.remove("dark");
+    root.classList.remove("light");
+    root.classList.add(dark ? "light" : "dark");
+    localStorage.setItem("theme", dark ? "light" : "dark");
+    setIsDark(!dark);
+  };
+
   const [systemDarkMode, setSystemDarkMode] = React.useState(
     getUserSystemDarkMode()
   );
@@ -80,6 +107,8 @@ export const Theme = ({ data, children }) => {
         icon,
         font,
         darkMode,
+        toggleDarkMode,
+        isDark,
       }}
     >
       {children}

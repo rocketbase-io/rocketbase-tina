@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { Components, TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 import { Button } from "../util/button";
 import { Markdown, RichText } from "../util/rich-text";
+import {  useTheme } from "../layout/theme";
 
 const components: Components<{
   Button: {
@@ -15,8 +16,21 @@ const components: Components<{
 };
 
 export const Content = ({ data, parentField = "" }) => {
+  const theme = useTheme();
+ 
+
   return (
-    <Section color={data.color}>
+    <Section
+      color={data.color}
+      style={{
+        backgroundImage:
+          data?.bgImageDark && theme.isDark
+            ? `url(${data?.bgImageDark})`
+            : data?.bgImage
+            ? `url(${data.bgImage})`
+            : "none",
+      }}
+    >
       <Container
         className={`max-w-8xl prose prose-lg smd:flex smd:items-center  ${
           data.color === "primary" ? `prose-primary` : `dark:prose-dark`
@@ -95,6 +109,16 @@ export const contentBlockSchema: TinaTemplate = {
         { label: "Tint", value: "tint" },
         { label: "Primary", value: "primary" },
       ],
+    },
+    {
+      type: "image",
+      label: "Background Image",
+      name: "bgImage",
+    },
+    {
+      type: "image",
+      label: "Background Image Dark",
+      name: "bgImageDark",
     },
   ],
 };
