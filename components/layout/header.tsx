@@ -137,7 +137,7 @@ export const Header = ({ data, dark }) => {
                       key={`${item.label}-${i}`}
                       className={`${
                         activeItem ? activeItemClasses[theme.color] : ""
-                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent  `}
+                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent hover:text-black dark:hover:text-white transition duration-150 ease-out`}
                     >
                       <Link href={`${prefix}/${item.href}`} passHref>
                         <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-2">
