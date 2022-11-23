@@ -59,7 +59,7 @@ export const Project = ({ data, parentField = "" }) => {
             </dl>
             <div className="mt-8" style={{ willChange: "contents" }}>
               {data?.technologies
-                .filter((ref) => ref.technology?.name)
+                ?.filter((ref) => ref.technology?.name)
                 .map((ref) => (
                   <Technology
                     className="mb-2 mr-2 hover:scale-102 transition-all duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
@@ -82,10 +82,10 @@ export const projectBlockSchema: Template = {
     previewSrc: "/blocks/project.png",
     defaultItem: {
       body: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-      label: "Content with Image",
+      label: "Project",
     },
     itemProps: (item) => {
-      return { label: item?.label };
+      return { label: item?.name };
     },
   },
   fields: [

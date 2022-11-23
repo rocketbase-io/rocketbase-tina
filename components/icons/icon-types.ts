@@ -6,19 +6,29 @@ import {
   Amazonaws,
   Springboot,
   Tailwindcss,
+  Flutter,
+  Mariadb,
+  Vaadin,
+  Firebase,
+  Mongodb,
+  Elasticsearch,
+  Vuedotjs,
+  Typescript,
+  Spring,
+  Oracle,
 } from "@icons-pack/react-simple-icons";
 
 import {
-    CloudMoon,
-    Chat,
-    Terminal,
-    NotePencil,
-    HardDrives,
-    Monitor,
-    Graph,
-    Database,
-    Wrench,
-  } from "phosphor-react";
+  CloudMoon,
+  Chat,
+  Terminal,
+  NotePencil,
+  HardDrives,
+  Monitor,
+  Graph,
+  Database,
+  Wrench,
+} from "phosphor-react";
 
 export const simpleIcons = {
   Docker,
@@ -28,6 +38,16 @@ export const simpleIcons = {
   Amazonaws,
   Springboot,
   Tailwindcss,
+  Flutter,
+  Mariadb,
+  Vaadin,
+  Firebase,
+  Mongodb,
+  Elasticsearch,
+  Vuedotjs,
+  Typescript,
+  Spring,
+  Oracle,
 };
 
 export const phosphorIcons = {
