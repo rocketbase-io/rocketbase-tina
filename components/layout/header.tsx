@@ -29,18 +29,18 @@ export const Header = ({ data, dark }) => {
       : headerColor.default;
 
   const activeItemClasses = {
-    blue: "bg-blue-700 text-white hover:bg-blue-700 md:bg-transparent md:!text-blue-300",
-    teal: "bg-teal-700 text-white hover:bg-teal-700 md:bg-transparent md:!text-teal-300",
+    blue: "bg-blue-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-blue-700 md:bg-transparent md:!text-blue-300",
+    teal: "bg-teal-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-teal-700 md:bg-transparent md:!text-teal-300",
     green:
-      "bg-green-700 text-white hover:bg-green-700 md:bg-transparent md:!text-green-300",
-    red: "bg-red-700 text-white hover:bg-red-700 md:bg-transparent md:!text-red-300",
-    pink: "bg-pink-700 text-white hover:bg-pink-700 md:bg-transparent md:!text-pink-300",
+      "bg-green-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-green-700 md:bg-transparent md:!text-green-300",
+    red: "bg-red-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-red-700 md:bg-transparent md:!text-red-300",
+    pink: "bg-pink-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-pink-700 md:bg-transparent md:!text-pink-300",
     purple:
-      "bg-purple-700 text-white hover:bg-purple-700 md:bg-transparent md:!text-purple-300",
+      "bg-purple-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-purple-700 md:bg-transparent md:!text-purple-300",
     orange:
-      "bg-orange-700 text-white hover:bg-orange-700 md:bg-transparent md:!text-orange-300",
+      "bg-orange-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-orange-700 md:bg-transparent md:!text-orange-300",
     yellow:
-      "bg-yellow-700 text-white hover:bg-yellow-700 md:bg-transparent md:!text-yellow-300",
+      "bg-yellow-700 !text-white max-md:hover:!text-black max-md:dark:hover:!text-white hover:bg-yellow-700 md:bg-transparent md:!text-yellow-300",
   };
 
   // If we're on an admin path, other links should also link to their admin paths
@@ -124,7 +124,7 @@ export const Header = ({ data, dark }) => {
           <div
             className={`w-full md:block md:w-auto ${isActive ? "" : "hidden"}`}
           >
-            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent dark:border-gray-700 max-md:dark:text-white dark:text-white">
+            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent dark:border-gray-700 max-md:dark:text-white dark:text-white ">
               {data.nav &&
                 data.nav.map((item, i) => {
                   const activeItem =
@@ -137,7 +137,7 @@ export const Header = ({ data, dark }) => {
                       key={`${item.label}-${i}`}
                       className={`${
                         activeItem ? activeItemClasses[theme.color] : ""
-                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent hover:text-black dark:hover:text-white transition duration-150 ease-out`}
+                      }  block py-2 pr-4 pl-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0  dark:hover:bg-gray-700 md:dark:hover:bg-transparent  transition duration-150 ease-out max-md:text-black max-md:dark:text-white`}
                     >
                       <Link href={`${prefix}/${item.href}`} passHref>
                         <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-2">
