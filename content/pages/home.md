@@ -49,7 +49,7 @@ blocks:
     _template: content
   - title: Auszug unserer Kunden
     showDetails: false
-    amount: 6
+    amount: 8
     _template: customers
   - label: Referenzen
     body: >
