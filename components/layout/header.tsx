@@ -65,9 +65,7 @@ export const Header = ({ data, dark }) => {
     setIsActive((current) => !current);
   };
 
-  const {isDark, toggleDarkMode} = useTheme();
-
-  
+  const { isDark, toggleDarkMode } = useTheme();
 
   return (
     <div
@@ -100,7 +98,7 @@ export const Header = ({ data, dark }) => {
           <button
             data-collapse-toggle="navbar-default"
             type="button"
-            className={`inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-600/30 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-600/30 dark:focus:ring-gray-600 `}
+            className={`max-md:dark:text-white inline-flex items-center p-2 ml-3 text-sm  rounded-lg md:hidden hover:bg-gray-600/30 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:hover:bg-gray-600/30 dark:focus:ring-gray-600 `}
             aria-controls="navbar-default"
             aria-expanded="false"
             onClick={toggleNav}
@@ -126,7 +124,7 @@ export const Header = ({ data, dark }) => {
           <div
             className={`w-full md:block md:w-auto ${isActive ? "" : "hidden"}`}
           >
-            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent dark:border-gray-700 max-md:text-white dark:text-white">
+            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-transparent md:bg-transparent dark:border-gray-700 max-md:dark:text-white dark:text-white">
               {data.nav &&
                 data.nav.map((item, i) => {
                   const activeItem =
