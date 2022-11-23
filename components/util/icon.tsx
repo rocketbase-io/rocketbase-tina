@@ -54,12 +54,12 @@ const formatFieldLabel = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-let iconLibrary: Omit<
+const iconLibrary: Omit<
   typeof phosphorIcons,
   "Icon" | "IconProps" | "IconWeight" | "IconContext"
 > = phosphorIcons;
 
-let iconLibraryKeys: {
+const iconLibraryKeys: {
   label: string;
   value: keyof typeof iconLibrary;
 }[] = Object.keys(iconLibrary)

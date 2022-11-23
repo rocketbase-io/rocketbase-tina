@@ -54,9 +54,9 @@ const formatFieldLabel = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-let iconLibrary = simpleIcons;
+const iconLibrary = simpleIcons;
 
-let iconLibraryKeys: {
+const iconLibraryKeys: {
   label: string;
   value: keyof typeof iconLibrary;
 }[] = Object.keys(iconLibrary).map((icon: keyof typeof iconLibrary) => ({

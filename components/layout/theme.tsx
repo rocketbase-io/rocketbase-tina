@@ -3,7 +3,7 @@ import GlobalData from "../../content/global/index.json";
 
 const ThemeContext = React.createContext({
   ...GlobalData.theme,
-  toggleDarkMode: () => {},
+  toggleDarkMode: () => { console.log('not implemented')},
   isDark: false,
 });
 
