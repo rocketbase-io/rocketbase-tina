@@ -6,8 +6,8 @@ import {
   TinaMarkdownContent,
 } from "tinacms/dist/rich-text";
 import { Button } from "./button";
-import { Icon, iconFields, iconSchema } from "./icon";
-import { IconTechnology, iconTechnologyFields } from "./icon-technology";
+import { Icon, iconFields, iconSchema } from "../icons/icon";
+import { IconTechnology, iconTechnologyFields } from "../icons/icon-technology";
 
 //todo fix types
 const components: Components<{

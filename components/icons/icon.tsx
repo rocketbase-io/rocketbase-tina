@@ -1,5 +1,7 @@
 import * as React from "react";
-import * as simpleIcons from "@icons-pack/react-simple-icons";
+/* import * as phosphorIcons from "phosphor-react/"; */
+import { phosphorIcons } from "./icon-types";
+
 import { useTheme } from "../layout";
 
 import type { SchemaField, TinaField } from "tinacms";
@@ -54,17 +56,24 @@ const formatFieldLabel = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-const iconLibrary = simpleIcons;
+const iconLibrary: Omit<
+  typeof phosphorIcons,
+  "Icon" | "IconProps" | "IconWeight" | "IconContext"
+> = phosphorIcons;
 
 const iconLibraryKeys: {
   label: string;
   value: keyof typeof iconLibrary;
-}[] = Object.keys(iconLibrary).map((icon: keyof typeof iconLibrary) => ({
-  label: formatFieldLabel(icon),
-  value: icon,
-}));
+}[] = Object.keys(iconLibrary)
+  .filter(
+    (i) => !["Icon", "IconProps", "IconWeight", "IconContext"].includes(i)
+  )
+  .map((icon: keyof typeof iconLibrary) => ({
+    label: formatFieldLabel(icon),
+    value: icon,
+  }));
 
-export const IconTechnology = ({
+export const Icon = ({
   data,
   parentColor = "",
   className = "",
@@ -82,9 +91,9 @@ export const IconTechnology = ({
   className?: string;
   tinaField?: string;
 }) => {
-  if (!data) return <></>;
-
   const theme = useTheme();
+
+  if (!data) return <></>;
 
   const iconName = data.name;
 
@@ -131,7 +140,7 @@ export const IconTechnology = ({
     );
   }
 };
-export const iconTechnologyFields: SchemaField[] = [
+export const iconFields: SchemaField[] = [
   {
     type: "string",
     label: "Color",
@@ -170,9 +179,9 @@ export const iconTechnologyFields: SchemaField[] = [
   },
 ];
 
-export const iconTechnologySchema: SchemaField & { fields: SchemaField[] } = {
+export const iconSchema: SchemaField & { fields: SchemaField[] } = {
   type: "object",
   label: "Icon",
   name: "icon",
-  fields: iconTechnologyFields,
+  fields: iconFields,
 };

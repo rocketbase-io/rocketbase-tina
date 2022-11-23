@@ -11,8 +11,8 @@ import { imagesBlockSchema } from "../components/blocks/images";
 import { projectBlockSchema } from "../components/blocks/project";
 import { removeDiacritics } from "../util/util";
 import { technologySchema } from "../components/util/technology";
-import { iconSchema } from "../components/util/icon";
-import { iconTechnologySchema } from "../components/util/icon-technology";
+import { iconSchema } from "../components/icons/icon";
+import { iconTechnologySchema } from "../components/icons/icon-technology";
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,

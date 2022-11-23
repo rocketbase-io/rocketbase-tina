@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Container } from "../util/container";
 import { useTheme } from ".";
 import { Button } from "tinacms";
-import { Icon } from "../util/icon";
+import { Icon } from "../icons/icon";
 
 export const Header = ({ data, dark }) => {
   const theme = useTheme();

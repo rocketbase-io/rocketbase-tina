@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { Template } from "tinacms";
-import { IconTechnology, iconTechnologySchema } from "./icon-technology";
+import { IconTechnology, iconTechnologySchema } from "../icons/icon-technology";
 
 export const Technology = ({ data, className = "" }) => {
   if (data && data.icon) data.icon.style = "circle";

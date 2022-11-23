@@ -4,8 +4,8 @@ import { FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { Container } from "../util/container";
 import { useTheme } from ".";
-import { Icon } from "../util/icon";
-import { IconTechnology } from "../util/icon-technology";
+import { Icon } from "../icons/icon";
+import { IconTechnology } from "../icons/icon-technology";
 
 export const Footer = ({ data, icon, rawData, headerData }) => {
   const [prefix, setPrefix] = React.useState("");

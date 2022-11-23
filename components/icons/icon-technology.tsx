@@ -1,9 +1,10 @@
 import * as React from "react";
-import * as phosphorIcons from "phosphor-react/";
-
+/* import * as simpleIcons from "@icons-pack/react-simple-icons"; */
+import { simpleIcons } from "./icon-types";
 import { useTheme } from "../layout";
 
 import type { SchemaField, TinaField } from "tinacms";
+import { IconProps } from "phosphor-react";
 
 const iconColorClass = {
   blue: {
@@ -54,24 +55,17 @@ const formatFieldLabel = (value: string) => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-const iconLibrary: Omit<
-  typeof phosphorIcons,
-  "Icon" | "IconProps" | "IconWeight" | "IconContext"
-> = phosphorIcons;
+const iconLibrary = simpleIcons;
 
 const iconLibraryKeys: {
   label: string;
   value: keyof typeof iconLibrary;
-}[] = Object.keys(iconLibrary)
-  .filter(
-    (i) => !["Icon", "IconProps", "IconWeight", "IconContext"].includes(i)
-  )
-  .map((icon: keyof typeof iconLibrary) => ({
-    label: formatFieldLabel(icon),
-    value: icon,
-  }));
+}[] = Object.keys(iconLibrary).map((icon: keyof typeof iconLibrary) => ({
+  label: formatFieldLabel(icon),
+  value: icon,
+}));
 
-export const Icon = ({
+export const IconTechnology = ({
   data,
   parentColor = "",
   className = "",
@@ -84,14 +78,14 @@ export const Icon = ({
     colorClass?: keyof typeof iconColorClass | "primary";
     styleClass?: "circle" | "float";
   };
-  svgProps?: phosphorIcons.IconProps & React.RefAttributes<SVGSVGElement>;
+  svgProps?: IconProps & React.RefAttributes<SVGSVGElement>;
   parentColor?: string;
   className?: string;
   tinaField?: string;
 }) => {
-  const theme = useTheme();
-
   if (!data) return <></>;
+
+  const theme = useTheme();
 
   const iconName = data.name;
 
@@ -138,7 +132,7 @@ export const Icon = ({
     );
   }
 };
-export const iconFields: SchemaField[] = [
+export const iconTechnologyFields: SchemaField[] = [
   {
     type: "string",
     label: "Color",
@@ -177,9 +171,9 @@ export const iconFields: SchemaField[] = [
   },
 ];
 
-export const iconSchema: SchemaField & { fields: SchemaField[] } = {
+export const iconTechnologySchema: SchemaField & { fields: SchemaField[] } = {
   type: "object",
   label: "Icon",
   name: "icon",
-  fields: iconFields,
+  fields: iconTechnologyFields,
 };
