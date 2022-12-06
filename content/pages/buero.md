@@ -4,6 +4,7 @@ darkHeader: true
 blocks:
   - image:
       src: /uploads/meeting-bg.jpg
+    showWave: true
     _template: banner
   - label: Content
     body: >

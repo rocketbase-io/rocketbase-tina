@@ -4,6 +4,7 @@ blocks:
   - image:
       src: /uploads/references.png
       alt: Referenzen
+    showWave: true
     _template: banner
   - label: Kundenstimmen
     body: >

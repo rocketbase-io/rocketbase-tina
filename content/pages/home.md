@@ -4,6 +4,7 @@ blocks:
   - image:
       src: /uploads/homepage.png
       alt: RocketBase
+    showWave: true
     _template: banner
   - label: Kurzbeschreibung
     body: >

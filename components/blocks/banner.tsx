@@ -5,6 +5,7 @@ import { Section } from "../util/section";
 import { useTheme } from "../layout";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
+import { Wave } from "./wave";
 
 export const Banner = ({ data, parentField }) => {
   const theme = useTheme();
@@ -24,8 +25,13 @@ export const Banner = ({ data, parentField }) => {
       {data.image && (
         <div
           data-tinafield={`${parentField}.image`}
-          className="row-start-1 flex justify-center"
+          className="row-start-1 flex justify-center relative"
         >
+          {data.showWave && (
+            <Wave
+              className="w-full h-20 absolute bottom-0 text-white dark:text-gray-800"
+            />
+          )}
           <img
             className="w-screen h-auto"
             alt={data.image.alt}
@@ -57,6 +63,11 @@ export const bannerBlockSchema: TinaTemplate = {
           type: "string",
         },
       ],
+    },
+    {
+      type: "boolean",
+      label: "Show Wave",
+      name: "showWave",
     },
   ],
 };

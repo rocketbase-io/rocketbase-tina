@@ -50,7 +50,7 @@ export const Layout = ({
           ${data.theme.font === "note" && "font-note"}`}
         >
           <Header data={data?.header} dark={rawData?.page?.darkHeader} />
-          <div className="flex-1 text-gray-800 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 flex flex-col">
+          <div className="flex-1 text-gray-800 dark:bg-gray-800 from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 flex flex-col">
             {children}
           </div>
           <Footer

@@ -3,6 +3,7 @@ title: Über uns
 blocks:
   - image:
       src: /uploads/about-us.png
+    showWave: true
     _template: banner
   - label: Team
     body: |
