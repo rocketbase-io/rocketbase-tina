@@ -16,6 +16,7 @@ import {
   Typescript,
   Spring,
   Oracle,
+  Github,
 } from "@icons-pack/react-simple-icons";
 
 import {
@@ -48,6 +49,7 @@ export const simpleIcons = {
   Typescript,
   Spring,
   Oracle,
+  Github,
 };
 
 export const phosphorIcons = {
